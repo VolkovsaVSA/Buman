@@ -10,10 +10,11 @@ import SwiftUI
 
 struct MainView: View {
     
-//    init() {
-//        UINavigationBar.appearance().backgroundColor = .systemGroupedBackground
-//        UINavigationBar.appearance().isOpaque = true
-//    }
+    //    init() {
+    //        UINavigationBar.appearance().backgroundColor = .systemGroupedBackground
+    //        UINavigationBar.appearance().isOpaque = true
+    //    }
+    private let qqq = ["1", "1"/*, "1", "1", "1", "1","1", "1", "1", "1", "1", "1"*/]
     
     var body: some View {
         
@@ -23,6 +24,7 @@ struct MainView: View {
                 Color(.systemGroupedBackground)
                     .edgesIgnoringSafeArea(.all)
                 ScrollView {
+                    
                     VStack(alignment: .leading, spacing: 20) {
                         Text("Tasks")
                             .font(.system(size: 40, weight: .bold))
@@ -38,18 +40,21 @@ struct MainView: View {
                             TaskMenuView(title: "Control", count: 2, image: "flag.fill", color: .red)
                                 .cornerRadius(12)
                         }
- 
-                        
-                        Form {
-                            Section(header: Text("Important tasks")) {
-                                Text("123")
-                                Text("123")
-                                Text("123")
-                            }
-                        }
-                        
                     }
                     .padding(20)
+                    
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("My lists")
+                            .font(.system(size: 40, weight: .bold))
+                        
+                        List(qqq, id: \.self) { q in
+                            Text(q)
+                        }
+                        .frame(height: 44.4 * CGFloat(qqq.count))
+                    
+                    }
+                    .padding(20)
+                    
                     
                 }
                 
@@ -63,11 +68,11 @@ struct MainView: View {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.title)
                 }))
-            .background(NavigationConfigurator { nc in
-                nc.navigationBar.barTintColor = .systemGroupedBackground
-                //nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-            })
-                
+                .background(NavigationConfigurator { nc in
+                    nc.navigationBar.barTintColor = .systemGroupedBackground
+                    //nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
+                })
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         
