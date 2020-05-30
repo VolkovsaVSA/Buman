@@ -10,22 +10,25 @@ import SwiftUI
 
 struct ListDetailView: View {
     
-    @ObservedObject var list: ListViewModel
+    @ObservedObject var listVM: ListViewModel
     
     @State var inCompleet: Bool = false
     
     var body: some View {
         
-        List(list.rows) { row in
-            HStack {
-                Image(systemName: self.inComleetCheck(inCompleet: row.listRow.isComplete))
-                    .onTapGesture {
-                        self.list.rows[0].listRow.isComplete.toggle()
-                }
-                Text("\(row.listRow.title)")
-            }
+        List(listVM.rows) { listRowVM in
+            
+            ListRowView(listRowVM: listRowVM)
+            
+//            HStack {
+//                Image(systemName: self.inComleetCheck(inCompleet: listRowVM.listRow.isComplete))
+//                    .onTapGesture {
+//                        print("toggle")
+//                }
+//                Text("\(listRowVM.listRow.title)")
+//            }
         }
-        .navigationBarTitle("\(list.list.title)")
+        .navigationBarTitle("\(listVM.list.title)")
     }
     
     
@@ -37,6 +40,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(list: ListViewModel(list: ListOfLists.first!))
+        ListDetailView(listVM: ListViewModel(list: ListOfLists.first!))
     }
 }

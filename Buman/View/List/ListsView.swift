@@ -10,13 +10,22 @@ import SwiftUI
 
 struct ListsView: View {
     
-    @ObservedObject var lists = ListsViewModel()
+    @ObservedObject var listsVM = ListsViewModel()
     
     var body: some View {
-        List(lists.lists) { list in
+        List(listsVM.lists) { list in
             
-            NavigationLink(destination: ListDetailView(list: list)) {
-                ListRowView(listRow: list)
+            NavigationLink(destination: ListDetailView(listVM: list)) {
+
+                HStack {
+                    Image(systemName: "\(list.list.systemImage)")
+                    //Spacer()
+                    Text("\(list.list.title)")
+                    Spacer()
+                    Text("\(list.rows.count)")
+                }
+
+
             }
 
             

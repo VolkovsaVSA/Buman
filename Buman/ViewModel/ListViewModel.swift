@@ -17,6 +17,7 @@ class ListViewModel: ObservableObject, Identifiable {
     init(list: ListModel) {
         self.list = list
         self.id = list.id
+        
         list.listRows.forEach({ row in
             self.rows.append(ListRowViewModel(listRow: row))
         })

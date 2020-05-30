@@ -24,7 +24,6 @@ class ListRowModel: Identifiable, ObservableObject {
 }
 
 
-#if DEBUG
 var ListArray = [
     ListRowModel(title: "Kyle Reese", isExpand: false, isComplete: false, subLists: []),
     ListRowModel(title: "Sarah Connor", isExpand: true, isComplete: false, subLists: [
@@ -43,4 +42,4 @@ var ListOfLists = [
     ListModel(title: "Gym", listRows: ListArray, systemImage: "calendar", colorSystemImage: .blue),
     ListModel(title: "By", listRows: [], systemImage: "calendar", colorSystemImage: .blue),
 ]
-#endif
+

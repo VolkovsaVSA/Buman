@@ -24,3 +24,11 @@ class ListModel: Identifiable, ObservableObject {
     }
     
 }
+//
+//struct ListModel: Identifiable {
+//  var id = UUID()
+//  var title: String
+//  var listRows: [ListRowModel]
+//  var systemImage: String
+//  var colorSystemImage: UIColor
+//}
