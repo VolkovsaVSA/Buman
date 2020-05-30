@@ -9,12 +9,18 @@
 import SwiftUI
 
 struct ListsView: View {
+    
+    @ObservedObject var lists = ListsViewModel()
+    
     var body: some View {
-        NavigationView {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationBarTitle("!!!")
+        List(lists.lists) { list in
+            
+            NavigationLink(destination: ListDetailView(list: list)) {
+                ListRowView(listRow: list)
+            }
+
+            
         }
-        
     }
 }
 

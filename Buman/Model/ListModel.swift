@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 class ListModel: Identifiable, ObservableObject {
-    let id = UUID().uuidString
+    let id = UUID()
     var title: String
     var listRows: [ListRowModel]
+    var systemImage: String
+    var colorSystemImage: UIColor
     
-    init(title: String, listRows: [ListRowModel]) {
+    init(title: String, listRows: [ListRowModel], systemImage: String, colorSystemImage: UIColor) {
         self.title = title
         self.listRows = listRows
+        self.systemImage = systemImage
+        self.colorSystemImage = colorSystemImage
     }
     
 }

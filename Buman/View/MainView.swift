@@ -7,60 +7,39 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct MainView: View {
     
-    //    init() {
-    //        UINavigationBar.appearance().backgroundColor = .systemGroupedBackground
-    //        UINavigationBar.appearance().isOpaque = true
-    //    }
-    private let qqq = ["1", "1"/*, "1", "1", "1", "1","1", "1", "1", "1", "1", "1"*/]
+    init() {
+        UIScrollView.appearance().backgroundColor = .systemGroupedBackground // Uses UIColor
+    }
+    
+    @ObservedObject var navTitle = NavigationTitleViewModel()
+    
     
     var body: some View {
         
         NavigationView {
             
-            ZStack {
-                Color(.systemGroupedBackground)
-                    .edgesIgnoringSafeArea(.all)
+            TabView(selection: $navTitle.selectedTab) {
                 ScrollView {
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Tasks")
-                            .font(.system(size: 40, weight: .bold))
-                        HStack(spacing: 20) {
-                            TaskMenuView(title: "Today", count: 12, image: "clock.fill", color: .yellow)
-                                .cornerRadius(12)
-                            TaskMenuView(title: "Tomorrow", count: 6, image: "calendar", color: .blue)
-                                .cornerRadius(12)
-                        }
-                        HStack(spacing: 20) {
-                            TaskMenuView(title: "All tasks", count: 25, image: "tray.fill", color: .gray)
-                                .cornerRadius(12)
-                            TaskMenuView(title: "Control", count: 2, image: "flag.fill", color: .red)
-                                .cornerRadius(12)
-                        }
-                    }
-                    .padding(20)
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("My lists")
-                            .font(.system(size: 40, weight: .bold))
-                        
-                        List(qqq, id: \.self) { q in
-                            Text(q)
-                        }
-                        .frame(height: 44.4 * CGFloat(qqq.count))
-                    
-                    }
-                    .padding(20)
-                    
-                    
+                    TaskView()
                 }
+                .tabItem {
+                    Image(systemName: "tray.fill")
+                        .font(.title)
+                    Text("Tasks")
+                }.tag(0)
                 
+                ListsView()
+                    .tabItem {
+                        Image(systemName: "list.bullet")
+                            .font(.title)
+                        Text("List")
+                }.tag(1)
             }
-                
-            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarTitle("\(navTitle.title)", displayMode: .automatic)
             .navigationBarItems(trailing:
                 Button(action: {
                     
@@ -68,16 +47,15 @@ struct MainView: View {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.title)
                 }))
-                .background(NavigationConfigurator { nc in
-                    nc.navigationBar.barTintColor = .systemGroupedBackground
-                    //nc.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white]
-                })
+            
             
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         
+        //.navigationViewStyle(StackNavigationViewStyle())
         
     }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

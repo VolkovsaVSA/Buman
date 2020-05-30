@@ -24,7 +24,7 @@ struct TaskMenuView: View {
                     TaskImageView(image: image, color: color)
                     Spacer()
                     Text("\(count)")
-                        .font(Font.system(.title).bold())
+                        .font(Font.system(.largeTitle).bold())
                 }
                 Text(title)
                     .font(Font.system(.headline)).foregroundColor(.gray)
