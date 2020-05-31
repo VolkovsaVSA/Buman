@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class ListModel: Identifiable, ObservableObject {
-    let id = UUID()
+    var id = UUID()
     var title: String
     var listRows: [ListRowModel]
     var systemImage: String

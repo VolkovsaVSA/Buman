@@ -15,7 +15,7 @@ struct ListView: View {
     var body: some View {
         
         List(listVM.listRowsVM) { listRowVM in
-            ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
+            ListRowView(listRowVM: listRowVM)
         }
         .listStyle(DefaultListStyle())
         .navigationBarTitle("\(listVM.list.title)")

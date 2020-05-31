@@ -11,36 +11,41 @@ import SwiftUI
 struct ListRowView: View {
     
     @ObservedObject var listRowVM: ListRowViewModel
-    @State var complete: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: inCompleetCheck(inCompleet: complete /*listRowVM.listRow.isComplete*/))
+                Image(systemName: isCompleteCheck(isComplete: listRowVM.isComplete))
                     .onTapGesture {
-                        self.listRowVM.listRow.isComplete.toggle()
-                        self.complete.toggle()
+                        self.listRowVM.isComplete.toggle()
+                        self.changeSublistIsComplete(listRowVM: self.listRowVM)
                 }
-                Text("\(listRowVM.listRow.title)")
+                Text("\(listRowVM.title)")
             }
             if !listRowVM.subListRowsVM.isEmpty {
                 Section {
-                    ForEach (listRowVM.subListRowsVM) { listRowVM in
-                        ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
+                    ForEach (listRowVM.subListRowsVM) { sublistRowVM in
+                        ListRowView(listRowVM: sublistRowVM)
                     }
                 }.padding(.leading, 20)
             }
         }
     }
     
-    private func inCompleetCheck(inCompleet: Bool) -> String {
-        return inCompleet ? "checkmark.circle.fill" : "circle"
+    private func isCompleteCheck(isComplete: Bool) -> String {
+        return isComplete ? "checkmark.circle.fill" : "circle"
+    }
+    private func changeSublistIsComplete(listRowVM: ListRowViewModel) {
+        for (_, value) in listRowVM.subListRowsVM.enumerated() {
+            value.isComplete = listRowVM.isComplete
+            changeSublistIsComplete(listRowVM: value)
+        }
     }
     
 }
 
 struct ListRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListRowView(listRowVM: ListRowViewModel(listRow: ListOfLists[0].listRows[1]), complete: ListOfLists[0].listRows[1].isComplete)
+        ListRowView(listRowVM: ListRowViewModel(listRow: ListOfLists[0].listRows[1]))
     }
 }

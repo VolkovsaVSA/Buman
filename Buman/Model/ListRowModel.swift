@@ -9,7 +9,7 @@
 import Foundation
 
 class ListRowModel: Identifiable, ObservableObject {
-    let id = UUID()
+    var id = UUID()
     var title: String
     var isExpand: Bool
     var isComplete: Bool
