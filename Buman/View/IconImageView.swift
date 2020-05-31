@@ -8,27 +8,28 @@
 
 import SwiftUI
 
-struct TaskImageView: View {
+struct IconImageView: View {
     
     var image: String
     var color: Color
+    var imageScale: CGFloat
     
     var body: some View {
         
         ZStack {
             color
             Image(systemName: image)
-                .font(.title)
+                .font(Font.system(size: imageScale))
                 .foregroundColor(.white)
             
         }
-        .frame(width: 50, height: 50)
+        .frame(width: imageScale * 2, height: imageScale * 2)
         .clipShape(Circle())
     }
 }
 
 struct TaskImageView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskImageView(image: "calendar", color: .blue)
+        IconImageView(image: "calendar", color: .blue, imageScale: 50)
     }
 }

@@ -7,16 +7,16 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
 class ListModel: Identifiable, ObservableObject {
     let id = UUID()
     var title: String
     var listRows: [ListRowModel]
     var systemImage: String
-    var colorSystemImage: UIColor
+    var colorSystemImage: Color
     
-    init(title: String, listRows: [ListRowModel], systemImage: String, colorSystemImage: UIColor) {
+    init(title: String, listRows: [ListRowModel], systemImage: String, colorSystemImage: Color) {
         self.title = title
         self.listRows = listRows
         self.systemImage = systemImage
@@ -24,11 +24,8 @@ class ListModel: Identifiable, ObservableObject {
     }
     
 }
-//
-//struct ListModel: Identifiable {
-//  var id = UUID()
-//  var title: String
-//  var listRows: [ListRowModel]
-//  var systemImage: String
-//  var colorSystemImage: UIColor
-//}
+
+var ListOfLists = [
+    ListModel(title: "First targets", listRows: ListArray, systemImage: "pencil.tip", colorSystemImage: .red),
+    ListModel(title: "Second targets", listRows: [], systemImage: "flag.fill", colorSystemImage: .blue)
+]

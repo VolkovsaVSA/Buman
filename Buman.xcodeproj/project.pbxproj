@@ -12,7 +12,7 @@
 		681094D4247D46AF00472AAA /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094D3247D46AF00472AAA /* ListModel.swift */; };
 		681094D7247D4B9000472AAA /* ListRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094D6247D4B9000472AAA /* ListRowViewModel.swift */; };
 		681094DA247D616700472AAA /* TaskMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094D9247D616700472AAA /* TaskMenuView.swift */; };
-		681094DC247D70B000472AAA /* TaskImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094DB247D70B000472AAA /* TaskImageView.swift */; };
+		681094DC247D70B000472AAA /* IconImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094DB247D70B000472AAA /* IconImageView.swift */; };
 		681094DE247ECAF700472AAA /* NavigationConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094DD247ECAF700472AAA /* NavigationConfigurator.swift */; };
 		681094E0247EDFD400472AAA /* TaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094DF247EDFD400472AAA /* TaskView.swift */; };
 		681094E3247F05F600472AAA /* NavigationTitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */; };
@@ -20,6 +20,7 @@
 		681094E72482297400472AAA /* ListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094E62482297400472AAA /* ListsViewModel.swift */; };
 		681094EC2482344F00472AAA /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094EB2482344F00472AAA /* ListDetailView.swift */; };
 		681094EE2482486600472AAA /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094ED2482486600472AAA /* ListRowView.swift */; };
+		686FB30B24837173003A531C /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FB30A24837173003A531C /* TaskListView.swift */; };
 		68EB9864247D1DC100B435A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB9863247D1DC100B435A7 /* AppDelegate.swift */; };
 		68EB9866247D1DC100B435A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB9865247D1DC100B435A7 /* SceneDelegate.swift */; };
 		68EB9868247D1DC100B435A7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68EB9867247D1DC100B435A7 /* MainView.swift */; };
@@ -36,7 +37,7 @@
 		681094D3247D46AF00472AAA /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		681094D6247D4B9000472AAA /* ListRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowViewModel.swift; sourceTree = "<group>"; };
 		681094D9247D616700472AAA /* TaskMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskMenuView.swift; sourceTree = "<group>"; };
-		681094DB247D70B000472AAA /* TaskImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskImageView.swift; sourceTree = "<group>"; };
+		681094DB247D70B000472AAA /* IconImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageView.swift; sourceTree = "<group>"; };
 		681094DD247ECAF700472AAA /* NavigationConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationConfigurator.swift; sourceTree = "<group>"; };
 		681094DF247EDFD400472AAA /* TaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskView.swift; sourceTree = "<group>"; };
 		681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTitleViewModel.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		681094E62482297400472AAA /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModel.swift; sourceTree = "<group>"; };
 		681094EB2482344F00472AAA /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		681094ED2482486600472AAA /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
+		686FB30A24837173003A531C /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		68EB9860247D1DC100B435A7 /* Buman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Buman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68EB9863247D1DC100B435A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68EB9865247D1DC100B435A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +95,7 @@
 			children = (
 				681094DF247EDFD400472AAA /* TaskView.swift */,
 				681094D9247D616700472AAA /* TaskMenuView.swift */,
-				681094DB247D70B000472AAA /* TaskImageView.swift */,
+				686FB30A24837173003A531C /* TaskListView.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				68EB9867247D1DC100B435A7 /* MainView.swift */,
+				681094DB247D70B000472AAA /* IconImageView.swift */,
 				681094E1247EEF0700472AAA /* Task */,
 				681094EA2482302D00472AAA /* List */,
 			);
@@ -293,7 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				681094DC247D70B000472AAA /* TaskImageView.swift in Sources */,
+				681094DC247D70B000472AAA /* IconImageView.swift in Sources */,
 				681094DA247D616700472AAA /* TaskMenuView.swift in Sources */,
 				681094D0247D285B00472AAA /* ListsView.swift in Sources */,
 				68EB9864247D1DC100B435A7 /* AppDelegate.swift in Sources */,
@@ -305,6 +308,7 @@
 				681094E72482297400472AAA /* ListsViewModel.swift in Sources */,
 				68EB9868247D1DC100B435A7 /* MainView.swift in Sources */,
 				681094EE2482486600472AAA /* ListRowView.swift in Sources */,
+				686FB30B24837173003A531C /* TaskListView.swift in Sources */,
 				681094E524821CA100472AAA /* ListViewModel.swift in Sources */,
 				681094DE247ECAF700472AAA /* NavigationConfigurator.swift in Sources */,
 				681094E0247EDFD400472AAA /* TaskView.swift in Sources */,

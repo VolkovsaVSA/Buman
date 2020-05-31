@@ -12,28 +12,13 @@ struct ListDetailView: View {
     
     @ObservedObject var listVM: ListViewModel
     
-    @State var inCompleet: Bool = false
     
     var body: some View {
         
-        List(listVM.rows) { listRowVM in
-            
-            ListRowView(listRowVM: listRowVM)
-            
-//            HStack {
-//                Image(systemName: self.inComleetCheck(inCompleet: listRowVM.listRow.isComplete))
-//                    .onTapGesture {
-//                        print("toggle")
-//                }
-//                Text("\(listRowVM.listRow.title)")
-//            }
+        List(listVM.listRowsVM) { listRowVM in
+            ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
         }
         .navigationBarTitle("\(listVM.list.title)")
-    }
-    
-    
-    private func inComleetCheck(inCompleet: Bool) -> String {
-        return inCompleet ? "checkmark.circle.fill" : "circle"
     }
     
 }

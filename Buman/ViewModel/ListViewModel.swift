@@ -8,19 +8,23 @@
 
 import Foundation
 import UIKit
+import Combine
 
-class ListViewModel: ObservableObject, Identifiable {
+final class ListViewModel: ObservableObject, Identifiable {
     let id: UUID
     @Published var list: ListModel
-    @Published var rows: [ListRowViewModel] = []
-
+    @Published var listRowsVM: [ListRowViewModel] = []
+    
     init(list: ListModel) {
         self.list = list
         self.id = list.id
         
         list.listRows.forEach({ row in
-            self.rows.append(ListRowViewModel(listRow: row))
+            self.listRowsVM.append(ListRowViewModel(listRow: row))
         })
+       
+        
     }
+    
 }
 

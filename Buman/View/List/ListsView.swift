@@ -10,26 +10,31 @@ import SwiftUI
 
 struct ListsView: View {
     
+    @State private var isEditMode = EditMode.inactive
     @ObservedObject var listsVM = ListsViewModel()
     
     var body: some View {
+        
+        //Color(.systemGroupedBackground)
         List(listsVM.lists) { list in
             
             NavigationLink(destination: ListDetailView(listVM: list)) {
-
                 HStack {
-                    Image(systemName: "\(list.list.systemImage)")
-                    //Spacer()
+                    IconImageView(image: list.list.systemImage, color: list.list.colorSystemImage, imageScale: 16)
                     Text("\(list.list.title)")
                     Spacer()
-                    Text("\(list.rows.count)")
+                    Text("\(list.listRowsVM.count)")
                 }
-
-
             }
-
             
         }
+        //.padding(.horizontal)
+        .listStyle(GroupedListStyle())
+        //.cornerRadius(12)
+            .introspectTableView { (tv) in
+                tv.backgroundColor = UIColor.systemGroupedBackground
+        }
+        
     }
 }
 

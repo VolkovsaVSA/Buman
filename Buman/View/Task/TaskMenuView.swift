@@ -21,13 +21,13 @@ struct TaskMenuView: View {
             Color("TaskTabColor")
             VStack(alignment: .leading) {
                 HStack {
-                    TaskImageView(image: image, color: color)
+                    IconImageView(image: image, color: color, imageScale: 20)
                     Spacer()
                     Text("\(count)")
                         .font(Font.system(.largeTitle).bold())
                 }
                 Text(title)
-                    .font(Font.system(.headline)).foregroundColor(.gray)
+                    .font(Font.system(size: 20, weight: .medium, design: .default)).foregroundColor(.gray)
             }
         .padding()
         }

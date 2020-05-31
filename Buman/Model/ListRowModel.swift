@@ -35,11 +35,5 @@ var ListArray = [
 ]
 
 
-var ListOfLists = [
-    ListModel(title: "My", listRows: ListArray, systemImage: "calendar", colorSystemImage: .blue),
-    ListModel(title: "Home", listRows: [], systemImage: "calendar", colorSystemImage: .blue),
-    ListModel(title: "Work", listRows: [], systemImage: "calendar", colorSystemImage: .blue),
-    ListModel(title: "Gym", listRows: ListArray, systemImage: "calendar", colorSystemImage: .blue),
-    ListModel(title: "By", listRows: [], systemImage: "calendar", colorSystemImage: .blue),
-]
+
 

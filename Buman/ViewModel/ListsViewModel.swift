@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListsViewModel: ObservableObject, Identifiable {
+final class ListsViewModel: ObservableObject, Identifiable {
     @Published var lists: [ListViewModel] = []
     
     init() {

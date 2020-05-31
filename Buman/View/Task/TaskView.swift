@@ -13,51 +13,37 @@ struct TaskView: View {
     private let qqq = ["1", "1", "1", "1", "1", "1","1", "1", "1", "1", "1", "1"]
     
     var body: some View {
-    
+        
         
         ZStack {
-            //Color(.systemGroupedBackground).edgesIgnoringSafeArea(.all)
+            
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-//                    Text("Tasks")
-//                        .font(.system(size: 34, weight: .bold))
+                    
                     HStack(spacing: 20) {
-                        TaskMenuView(title: "Today", count: 12, image: "clock.fill", color: .yellow)
+                        TaskMenuView(title: "Today", count: 12, image: "clock.fill", color: .init(.systemYellow))
                             .cornerRadius(12)
-                        TaskMenuView(title: "Tomorrow", count: 6, image: "calendar", color: .blue)
+                        TaskMenuView(title: "Tomorrow", count: 6, image: "calendar", color: .init(.systemBlue))
                             .cornerRadius(12)
                     }
                     HStack(spacing: 20) {
-                        TaskMenuView(title: "All tasks", count: 25, image: "tray.fill", color: .gray)
+                        TaskMenuView(title: "All tasks", count: 25, image: "tray.fill", color: .init(.systemGray))
                             .cornerRadius(12)
-                        TaskMenuView(title: "Control", count: 2, image: "flag.fill", color: .red)
+                        TaskMenuView(title: "Control", count: 2, image: "flag.fill", color: .init(.systemRed))
                             .cornerRadius(12)
                     }
                     
-                   
+                    
                 }
                 .padding(20)
                 
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Today")
-                        .font(.system(size: 26, weight: .bold))
-                    
-                    List(qqq, id: \.self) { q in
-                        Text(q)
-                    }
-                    .introspectTableView(customize: { tableView in
-                        tableView.isScrollEnabled = false
-                        tableView.separatorStyle = .none
-                    })
-                        .frame(height: 44.4 * CGFloat(qqq.count))
-                    
-                }
+                TaskListView(textArray: qqq)
                 .padding(20)
                 
             }.introspectScrollView { scrollView in
                 scrollView.showsVerticalScrollIndicator = false
             }
-
+            
         }
         
     }

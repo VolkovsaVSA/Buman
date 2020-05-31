@@ -12,11 +12,15 @@ import Introspect
 struct MainView: View {
     
     init() {
-        UIScrollView.appearance().backgroundColor = .systemGroupedBackground // Uses UIColor
+        UIScrollView.appearance().backgroundColor = .systemGroupedBackground
+        //        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
+        //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.yellow]
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
+        UITableView.appearance().backgroundColor = .systemGroupedBackground
     }
     
-    @ObservedObject var navTitle = NavigationTitleViewModel()
     
+    @ObservedObject var navTitle = NavigationTitleViewModel()
     
     var body: some View {
         
@@ -38,20 +42,22 @@ struct MainView: View {
                             .font(.title)
                         Text("List")
                 }.tag(1)
+                
             }
             .navigationBarTitle("\(navTitle.title)", displayMode: .automatic)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    
+            .navigationBarItems(
+                //                leading: Button(action: {
+                //                }, label: {
+                //                    Image(systemName: "person.crop.circle.fill")
+                //                        .font(.title)
+                //                }),
+                trailing: Button(action: {
                 }, label: {
                     Image(systemName: "person.crop.circle.fill")
                         .font(.title)
                 }))
             
-            
         }
-        
-        //.navigationViewStyle(StackNavigationViewStyle())
         
     }
     
