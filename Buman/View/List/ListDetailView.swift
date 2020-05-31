@@ -18,6 +18,8 @@ struct ListDetailView: View {
         List(listVM.listRowsVM) { listRowVM in
             ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
         }
+        .listStyle(DefaultListStyle())
+//        .environment(\.horizontalSizeClass, .regular)
         .navigationBarTitle("\(listVM.list.title)")
     }
     

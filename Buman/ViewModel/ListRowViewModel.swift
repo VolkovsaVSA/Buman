@@ -11,8 +11,13 @@ import Combine
 
 final class ListRowViewModel: ObservableObject, Identifiable {
     @Published var listRow: ListRowModel
+    @Published var subListRowsVM: [ListRowViewModel] = []
     
     init(listRow: ListRowModel) {
         self.listRow = listRow
+        
+        listRow.subLists.forEach { subListRow in
+            self.subListRowsVM.append(ListRowViewModel(listRow: subListRow))
+        }
     }
 }

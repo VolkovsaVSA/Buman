@@ -26,14 +26,15 @@ struct ListsView: View {
                     Text("\(list.listRowsVM.count)")
                 }
             }
+            .introspectTableView { (tv) in
+                    tv.backgroundColor = UIColor.systemGroupedBackground
+            }
             
         }
-        //.padding(.horizontal)
         .listStyle(GroupedListStyle())
-        //.cornerRadius(12)
-            .introspectTableView { (tv) in
-                tv.backgroundColor = UIColor.systemGroupedBackground
-        }
+        .environment(\.horizontalSizeClass, .regular)
+        
+            
         
     }
 }
