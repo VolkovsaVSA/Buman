@@ -18,7 +18,7 @@ struct ListsView: View {
         //Color(.systemGroupedBackground)
         List(listsVM.lists) { list in
             
-            NavigationLink(destination: ListDetailView(listVM: list)) {
+            NavigationLink(destination: ListView(listVM: list)) {
                 HStack {
                     IconImageView(image: list.list.systemImage, color: list.list.colorSystemImage, imageScale: 16)
                     Text("\(list.list.title)")

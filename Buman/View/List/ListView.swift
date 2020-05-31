@@ -8,10 +8,9 @@
 
 import SwiftUI
 
-struct ListDetailView: View {
+struct ListView: View {
     
     @ObservedObject var listVM: ListViewModel
-    
     
     var body: some View {
         
@@ -19,7 +18,6 @@ struct ListDetailView: View {
             ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
         }
         .listStyle(DefaultListStyle())
-//        .environment(\.horizontalSizeClass, .regular)
         .navigationBarTitle("\(listVM.list.title)")
     }
     
@@ -27,6 +25,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(listVM: ListViewModel(list: ListOfLists.first!))
+        ListView(listVM: ListViewModel(list: ListOfLists.first!))
     }
 }

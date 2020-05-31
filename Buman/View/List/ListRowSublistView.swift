@@ -19,15 +19,12 @@ struct ListRowSublistView: View {
             .introspectTableView { (tv) in
                 tv.isScrollEnabled = false
             }
-           
         }
-        
-        //.edgesIgnoringSafeArea(.all)
         .listStyle(DefaultListStyle())
-        //.frame(height: 35, alignment: .leading)
-        
-        
-        
+    }
+    
+    private func calcHeight(subList: [ListRowViewModel]) -> CGFloat {
+        return CGFloat(subList.count * 46 + 30)
     }
 }
 

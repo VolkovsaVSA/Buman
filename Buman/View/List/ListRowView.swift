@@ -26,9 +26,10 @@ struct ListRowView: View {
             }
             if !listRowVM.subListRowsVM.isEmpty {
                 ListRowSublistView(listRowVM: listRowVM)
+                    .frame(minHeight: calcHeight(subList: listRowVM.subListRowsVM))
             }
         }
-        .frame(minHeight: calcHeight(subList: listRowVM.subListRowsVM))
+        //.frame(minHeight: calcHeight(subList: listRowVM.subListRowsVM))
         
         
     }

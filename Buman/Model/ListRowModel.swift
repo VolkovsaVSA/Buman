@@ -27,7 +27,13 @@ class ListRowModel: Identifiable, ObservableObject {
 var ListArray = [
     ListRowModel(title: "Kyle Reese", isExpand: false, isComplete: false, subLists: []),
     ListRowModel(title: "Sarah Connor", isExpand: true, isComplete: false, subLists: [
-        ListRowModel(title: "John Connor", isExpand: false, isComplete: false, subLists: []),
+        ListRowModel(title: "John Connor", isExpand: false, isComplete: false, subLists: [
+            ListRowModel(title: "T800", isExpand: false, isComplete: false, subLists: [
+                ListRowModel(title: "T1000", isExpand: false, isComplete: false, subLists: []),
+                ListRowModel(title: "T1000", isExpand: false, isComplete: false, subLists: []),
+                ListRowModel(title: "T1000", isExpand: false, isComplete: false, subLists: [])
+            ])
+        ]),
         ListRowModel(title: "John Connor", isExpand: false, isComplete: false, subLists: []),
         ListRowModel(title: "John Connor", isExpand: false, isComplete: false, subLists: [])
     ]),
