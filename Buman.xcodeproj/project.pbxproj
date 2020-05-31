@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		680F932D24838D8A003C4EE7 /* ListRowSublistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 680F932C24838D8A003C4EE7 /* ListRowSublistView.swift */; };
 		681094D0247D285B00472AAA /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094CF247D285B00472AAA /* ListsView.swift */; };
 		681094D2247D2C4500472AAA /* ListRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094D1247D2C4500472AAA /* ListRowModel.swift */; };
 		681094D4247D46AF00472AAA /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681094D3247D46AF00472AAA /* ListModel.swift */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		289CD129AF3030B0E3A202F3 /* Pods-Buman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buman.release.xcconfig"; path = "Target Support Files/Pods-Buman/Pods-Buman.release.xcconfig"; sourceTree = "<group>"; };
-		680F932C24838D8A003C4EE7 /* ListRowSublistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowSublistView.swift; sourceTree = "<group>"; };
 		681094CF247D285B00472AAA /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		681094D1247D2C4500472AAA /* ListRowModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListRowModel.swift; sourceTree = "<group>"; };
 		681094D3247D46AF00472AAA /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 				681094CF247D285B00472AAA /* ListsView.swift */,
 				681094EB2482344F00472AAA /* ListView.swift */,
 				681094ED2482486600472AAA /* ListRowView.swift */,
-				680F932C24838D8A003C4EE7 /* ListRowSublistView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				681094E3247F05F600472AAA /* NavigationTitleViewModel.swift in Sources */,
 				681094EC2482344F00472AAA /* ListView.swift in Sources */,
 				681094E72482297400472AAA /* ListsViewModel.swift in Sources */,
-				680F932D24838D8A003C4EE7 /* ListRowSublistView.swift in Sources */,
 				68EB9868247D1DC100B435A7 /* MainView.swift in Sources */,
 				681094EE2482486600472AAA /* ListRowView.swift in Sources */,
 				686FB30B24837173003A531C /* TaskListView.swift in Sources */,

@@ -14,7 +14,6 @@ struct ListRowView: View {
     @State var complete: Bool
     
     var body: some View {
-        
         VStack(alignment: .leading) {
             HStack {
                 Image(systemName: inCompleetCheck(inCompleet: complete /*listRowVM.listRow.isComplete*/))
@@ -25,28 +24,19 @@ struct ListRowView: View {
                 Text("\(listRowVM.listRow.title)")
             }
             if !listRowVM.subListRowsVM.isEmpty {
-                ListRowSublistView(listRowVM: listRowVM)
-                    .frame(minHeight: calcHeight(subList: listRowVM.subListRowsVM))
+                Section {
+                    ForEach (listRowVM.subListRowsVM) { listRowVM in
+                        ListRowView(listRowVM: listRowVM, complete: listRowVM.listRow.isComplete)
+                    }
+                }.padding(.leading, 20)
             }
         }
-        //.frame(minHeight: calcHeight(subList: listRowVM.subListRowsVM))
-        
-        
     }
     
     private func inCompleetCheck(inCompleet: Bool) -> String {
         return inCompleet ? "checkmark.circle.fill" : "circle"
     }
-    private func calcHeight(subList: [ListRowViewModel]) -> CGFloat {
-        return CGFloat(subList.count * 46 + 30)
-    }
-    //    private func checkSublist(sublist: [ListRowViewModel]) -> some View {
-    //        if sublist.count > 0  {
-    //            return ListRowSublistView(listRowVM: listRowVM)
-    //        } else {
-    //            return EmptyView()
-    //        }
-    //    }
+    
 }
 
 struct ListRowView_Previews: PreviewProvider {
