@@ -7,17 +7,21 @@
 //
 
 import Foundation
-import UIKit
-import Combine
+import SwiftUI
 
 final class ListViewModel: ObservableObject, Identifiable {
     let id: UUID
-    @Published var list: ListModel
+    @Published var title: String
+    @Published var systemImage: String
+    @Published var colorSystemImage: Color
     @Published var listRowsVM: [ListRowViewModel] = []
     
+    
     init(list: ListModel) {
-        self.list = list
         self.id = list.id
+        self.title = list.title
+        self.systemImage = list.systemImage
+        self.colorSystemImage = list.colorSystemImage
         
         list.listRows.forEach({ row in
             self.listRowsVM.append(ListRowViewModel(listRow: row))

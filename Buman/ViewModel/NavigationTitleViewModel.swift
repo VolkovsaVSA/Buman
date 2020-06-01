@@ -6,7 +6,7 @@
 //  Copyright © 2020 Sergei Volkov. All rights reserved.
 //
 
-import Combine
+import SwiftUI
 
 final class NavigationTitleViewModel: ObservableObject {
     @Published var title = "Tasks"

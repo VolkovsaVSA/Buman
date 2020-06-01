@@ -7,13 +7,24 @@
 //
 
 import Foundation
-import Combine
 
 final class ListRowViewModel: ObservableObject, Identifiable {
     @Published var title: String
     @Published var isExpand: Bool
     @Published var isComplete: Bool
     @Published var subListRowsVM: [ListRowViewModel] = []
+    
+    func isCompleteCheck() -> String {
+        return isComplete ? "checkmark.circle.fill" : "circle"
+    }
+    func moreButton() -> String {
+        return (subListRowsVM.count > 0) ? "chevron.right" : "plus.circle"
+    }
+    func expandSublist() {
+        if !subListRowsVM.isEmpty {
+            isExpand.toggle()
+        }
+    }
     
     init(listRow: ListRowModel) {
         self.title = listRow.title

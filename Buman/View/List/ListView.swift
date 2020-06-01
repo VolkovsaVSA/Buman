@@ -18,7 +18,7 @@ struct ListView: View {
             ListRowView(listRowVM: listRowVM)
         }
         .listStyle(DefaultListStyle())
-        .navigationBarTitle("\(listVM.list.title)")
+        .navigationBarTitle("\(listVM.title)")
     }
     
 }

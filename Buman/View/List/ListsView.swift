@@ -20,8 +20,8 @@ struct ListsView: View {
             
             NavigationLink(destination: ListView(listVM: list)) {
                 HStack {
-                    IconImageView(image: list.list.systemImage, color: list.list.colorSystemImage, imageScale: 16)
-                    Text("\(list.list.title)")
+                    IconImageView(image: list.systemImage, color: list.colorSystemImage, imageScale: 16)
+                    Text("\(list.title)")
                     Spacer()
                     Text("\(list.listRowsVM.count)")
                 }

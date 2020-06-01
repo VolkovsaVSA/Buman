@@ -108,6 +108,14 @@
 			path = List;
 			sourceTree = "<group>";
 		};
+		681B9FE124850C6F00506722 /* SupportView */ = {
+			isa = PBXGroup;
+			children = (
+				681094DB247D70B000472AAA /* IconImageView.swift */,
+			);
+			path = SupportView;
+			sourceTree = "<group>";
+		};
 		68EB9857247D1DC100B435A7 = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				68EB9867247D1DC100B435A7 /* MainView.swift */,
-				681094DB247D70B000472AAA /* IconImageView.swift */,
+				681B9FE124850C6F00506722 /* SupportView */,
 				681094E1247EEF0700472AAA /* Task */,
 				681094EA2482302D00472AAA /* List */,
 			);
