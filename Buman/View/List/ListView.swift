@@ -13,10 +13,11 @@ struct ListView: View {
     @ObservedObject var listVM: ListViewModel
     
     var body: some View {
-        
         List(listVM.listRowsVM) { listRowVM in
             ListRowView(listRowVM: listRowVM)
+                //.animation(.interactiveSpring())
         }
+            .animation(.interactiveSpring())
         .listStyle(DefaultListStyle())
         .navigationBarTitle("\(listVM.title)")
     }

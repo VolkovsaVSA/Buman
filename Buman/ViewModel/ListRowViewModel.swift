@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class ListRowViewModel: ObservableObject, Identifiable {
     @Published var title: String
@@ -18,13 +19,18 @@ final class ListRowViewModel: ObservableObject, Identifiable {
         return isComplete ? "checkmark.circle.fill" : "circle"
     }
     func moreButton() -> String {
-        return (subListRowsVM.count > 0) ? "chevron.right" : "plus.circle"
+        return (subListRowsVM.count > 0) ? "chevron.right.circle" : ""
+    }
+    func moreButtonColor() -> Color {
+        return isExpand ? .gray : .blue
     }
     func expandSublist() {
         if !subListRowsVM.isEmpty {
             isExpand.toggle()
         }
     }
+    
+    
     
     init(listRow: ListRowModel) {
         self.title = listRow.title
