@@ -21,7 +21,7 @@ final class ListViewModel: ObservableObject, Identifiable {
         let newTaskVM = ListRowViewModel(listRow: newList)
         listRowsVM.append(newTaskVM)
     }
-    func removeTask(atOffsets: IndexSet) {
+    func removeListRow(atOffsets: IndexSet) {
         listRowsVM.remove(atOffsets: atOffsets)
     }
     func listRowVMCount()->Int {

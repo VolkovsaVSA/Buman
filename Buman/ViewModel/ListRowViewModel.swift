@@ -26,13 +26,15 @@ final class ListRowViewModel: ObservableObject, Identifiable {
             }
         }
     }
-    var fontWeight: Font.Weight
     @Published var isEditing = false
-    @Published var newTask = ""
+    @Published var isDelete = false
+    
+    var fontWeight: Font.Weight
     
     static func newListRow() -> ListRowViewModel {
       ListRowViewModel(listRow: ListRowModel(title: "", isExpand: false, isComplete: false, subLists: []))
     }
+    
     
     func isCompleteCheck() -> String {
         return isComplete ? "checkmark.circle.fill" : "circle"
@@ -47,6 +49,12 @@ final class ListRowViewModel: ObservableObject, Identifiable {
         if !subListRowsVM.isEmpty {
             isExpand.toggle()
         }
+    }
+    func removeSublistItem(atOffsets: IndexSet) {
+        subListRowsVM.remove(atOffsets: atOffsets)
+    }
+    func removeSublistItemAtIndex(index: Int) {
+        subListRowsVM.remove(at: index)
     }
     
     private func changeSublistIsComplete(subListVM: [ListRowViewModel]) {

@@ -14,7 +14,7 @@ struct ListRowView: View {
     var onCommit: (Result<ListRowModel, InputError>) -> Void = { _ in }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        Section {
             HStack {
                 if listRowVM.title != "" {
                     Image(systemName: listRowVM.isCompleteCheck())
@@ -37,16 +37,16 @@ struct ListRowView: View {
                         self.onCommit(.success(ListRowModel(title: self.listRowVM.title, isExpand: false, isComplete: false, subLists: [])))
                     }
                     else {
-                      self.onCommit(.failure(.empty))
+                        self.onCommit(.failure(.empty))
                     }
                 }
                 .font(Font.system(size: 17, weight: listRowVM.fontWeight, design: .default))
-                if listRowVM.isEditing {
+                if listRowVM.isEditing && !listRowVM.title.isEmpty {
                     Image(systemName: "info.circle")
                         .font(Font.system(size: 20))
                         .foregroundColor(.blue)
                 }
-                Spacer()
+                //Spacer()
                 Image(systemName: listRowVM.moreButton())
                     .onTapGesture {
                         self.listRowVM.expandSublist()
@@ -54,14 +54,16 @@ struct ListRowView: View {
                 .font(Font.system(size: 20))
                 .foregroundColor(listRowVM.moreButtonColor())
                 .rotationEffect(.degrees(self.listRowVM.isExpand ? 90 : 0)).animation(.interactiveSpring())
-                
-                
             }
             if !listRowVM.subListRowsVM.isEmpty {
                 if listRowVM.isExpand {
+                    
                     Section {
                         ForEach (listRowVM.subListRowsVM) { sublistRowVM in
                             ListRowView(listRowVM: sublistRowVM)
+                        }
+                        .onDelete { indexSet in
+                            self.listRowVM.removeSublistItem(atOffsets: indexSet)
                         }
                     }
                     .padding(.leading, 20)
