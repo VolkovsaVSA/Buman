@@ -11,17 +11,41 @@ import SwiftUI
 struct ListRowView: View {
     
     @ObservedObject var listRowVM: ListRowViewModel
+    var onCommit: (Result<ListRowModel, InputError>) -> Void = { _ in }
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: listRowVM.isCompleteCheck())
-                    .onTapGesture {
-                        self.listRowVM.isComplete.toggle()
-                        self.changeSublistIsComplete(listRowVM: self.listRowVM)
+                if listRowVM.title != "" {
+                    Image(systemName: listRowVM.isCompleteCheck())
+                        .onTapGesture {
+                            self.listRowVM.isComplete.toggle()
+                    }
+                    .font(Font.system(size: 20))
+                } else {
+                    Image(systemName: "plus.circle.fill")
+                        .font(Font.system(size: 20))
+                        .foregroundColor(Color(.systemRed))
                 }
-                .font(Font.system(size: 20))
-                Text("\(listRowVM.title)")
+                
+                TextField("Enter new task", text: self.$listRowVM.title, onEditingChanged: { isChange in
+                    //isChange
+                    self.listRowVM.isEditing = isChange
+                }) {
+                    //onCommit
+                    if !self.listRowVM.title.isEmpty {
+                        self.onCommit(.success(ListRowModel(title: self.listRowVM.title, isExpand: false, isComplete: false, subLists: [])))
+                    }
+                    else {
+                      self.onCommit(.failure(.empty))
+                    }
+                }
+                .font(Font.system(size: 17, weight: listRowVM.fontWeight, design: .default))
+                if listRowVM.isEditing {
+                    Image(systemName: "info.circle")
+                        .font(Font.system(size: 20))
+                        .foregroundColor(.blue)
+                }
                 Spacer()
                 Image(systemName: listRowVM.moreButton())
                     .onTapGesture {
@@ -30,7 +54,8 @@ struct ListRowView: View {
                 .font(Font.system(size: 20))
                 .foregroundColor(listRowVM.moreButtonColor())
                 .rotationEffect(.degrees(self.listRowVM.isExpand ? 90 : 0)).animation(.interactiveSpring())
-
+                
+                
             }
             if !listRowVM.subListRowsVM.isEmpty {
                 if listRowVM.isExpand {
@@ -44,12 +69,9 @@ struct ListRowView: View {
             }
         }
     }
-
-    private func changeSublistIsComplete(listRowVM: ListRowViewModel) {
-        for (_, value) in listRowVM.subListRowsVM.enumerated() {
-            value.isComplete = listRowVM.isComplete
-            changeSublistIsComplete(listRowVM: value)
-        }
+    
+    enum InputError: Error {
+        case empty
     }
     
 }

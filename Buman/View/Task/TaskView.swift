@@ -18,6 +18,7 @@ struct TaskView: View {
         ZStack {
             
             ScrollView {
+                
                 VStack(alignment: .leading, spacing: 20) {
                     
                     HStack(spacing: 20) {
@@ -32,8 +33,6 @@ struct TaskView: View {
                         TaskMenuView(title: "Control", count: 2, image: "flag.fill", color: .init(.systemRed))
                             .cornerRadius(12)
                     }
-                    
-                    
                 }
                 .padding(20)
                 

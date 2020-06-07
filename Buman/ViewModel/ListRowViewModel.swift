@@ -12,8 +12,27 @@ import SwiftUI
 final class ListRowViewModel: ObservableObject, Identifiable {
     @Published var title: String
     @Published var isExpand: Bool
-    @Published var isComplete: Bool
-    @Published var subListRowsVM: [ListRowViewModel] = []
+    @Published var isComplete: Bool {
+        didSet {
+            changeSublistIsComplete(subListVM: subListRowsVM)
+        }
+    }
+    @Published var subListRowsVM: [ListRowViewModel] = [] {
+        didSet {
+            if subListRowsVM.isEmpty {
+                fontWeight = .regular
+            } else {
+                fontWeight = .bold
+            }
+        }
+    }
+    var fontWeight: Font.Weight
+    @Published var isEditing = false
+    @Published var newTask = ""
+    
+    static func newListRow() -> ListRowViewModel {
+      ListRowViewModel(listRow: ListRowModel(title: "", isExpand: false, isComplete: false, subLists: []))
+    }
     
     func isCompleteCheck() -> String {
         return isComplete ? "checkmark.circle.fill" : "circle"
@@ -30,12 +49,19 @@ final class ListRowViewModel: ObservableObject, Identifiable {
         }
     }
     
+    private func changeSublistIsComplete(subListVM: [ListRowViewModel]) {
+        for (_, value) in subListVM.enumerated() {
+            value.isComplete = isComplete
+            changeSublistIsComplete(subListVM: value.subListRowsVM)
+        }
+    }
     
     
     init(listRow: ListRowModel) {
         self.title = listRow.title
         self.isExpand = listRow.isExpand
         self.isComplete = listRow.isComplete
+        self.fontWeight = listRow.subLists.isEmpty ? .regular: .bold
         
         listRow.subLists.forEach { subListRow in
             self.subListRowsVM.append(ListRowViewModel(listRow: subListRow))

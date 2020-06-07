@@ -13,14 +13,15 @@ struct MainView: View {
     
     init() {
         UIScrollView.appearance().backgroundColor = .systemGroupedBackground
-        //        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
-        //        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.yellow]
+        //UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
+        //UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.yellow]
         UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
         UITableView.appearance().backgroundColor = .systemGroupedBackground
     }
     
     
     @ObservedObject var navTitle = NavigationTitleViewModel()
+    @ObservedObject var listVM = ListsViewModel()
     
     var body: some View {
         
@@ -36,7 +37,7 @@ struct MainView: View {
                     Text("Tasks")
                 }.tag(0)
                 
-                ListsView()
+                ListsView(listsVM: listVM)
                     .tabItem {
                         Image(systemName: "list.bullet")
                             .font(.title)

@@ -15,6 +15,18 @@ final class ListViewModel: ObservableObject, Identifiable {
     @Published var systemImage: String
     @Published var colorSystemImage: Color
     @Published var listRowsVM: [ListRowViewModel] = []
+    @Published var newTask = ""
+    
+    func addListRow(newList: ListRowModel) {
+        let newTaskVM = ListRowViewModel(listRow: newList)
+        listRowsVM.append(newTaskVM)
+    }
+    func removeTask(atOffsets: IndexSet) {
+        listRowsVM.remove(atOffsets: atOffsets)
+    }
+    func listRowVMCount()->Int {
+        return listRowsVM.count
+    }
     
     
     init(list: ListModel) {

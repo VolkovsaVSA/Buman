@@ -11,7 +11,7 @@ import SwiftUI
 struct ListsView: View {
     
     @State private var isEditMode = EditMode.inactive
-    @ObservedObject var listsVM = ListsViewModel()
+    @ObservedObject var listsVM: ListsViewModel
     
     var body: some View {
         
@@ -23,7 +23,7 @@ struct ListsView: View {
                     IconImageView(image: list.systemImage, color: list.colorSystemImage, imageScale: 16)
                     Text("\(list.title)")
                     Spacer()
-                    Text("\(list.listRowsVM.count)")
+                    Text("\(list.listRowVMCount())")
                 }
             }
             .introspectTableView { (tv) in
@@ -41,6 +41,6 @@ struct ListsView: View {
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
-        ListsView()
+        ListsView(listsVM: ListsViewModel())
     }
 }

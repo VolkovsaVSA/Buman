@@ -19,6 +19,7 @@ struct TaskMenuView: View {
         
         ZStack{
             Color("TaskTabColor")
+            //Color.white
             VStack(alignment: .leading) {
                 HStack {
                     IconImageView(image: image, color: color, imageScale: 20)
