@@ -11,6 +11,8 @@ import SwiftUI
 struct ListRowView: View {
     
     @ObservedObject var listRowVM: ListRowViewModel
+    @State var addNewSublist = false
+    
     var onCommit: (Result<ListRowModel, InputError>) -> Void = { _ in }
     
     var body: some View {
@@ -41,12 +43,18 @@ struct ListRowView: View {
                     }
                 }
                 .font(Font.system(size: 17, weight: listRowVM.fontWeight, design: .default))
+
                 if listRowVM.isEditing && !listRowVM.title.isEmpty {
-                    Image(systemName: "info.circle")
-                        .font(Font.system(size: 20))
-                        .foregroundColor(.blue)
+                    Button(action: {
+                       
+                        self.addNewSublist.toggle()
+                        
+                    }, label: {
+                        Image(systemName: "plus.circle")
+                            .font(Font.system(size: 20))
+                            .foregroundColor(.blue)
+                    })
                 }
-                //Spacer()
                 Image(systemName: listRowVM.moreButton())
                     .onTapGesture {
                         self.listRowVM.expandSublist()
@@ -57,7 +65,6 @@ struct ListRowView: View {
             }
             if !listRowVM.subListRowsVM.isEmpty {
                 if listRowVM.isExpand {
-                    
                     Section {
                         ForEach (listRowVM.subListRowsVM) { sublistRowVM in
                             ListRowView(listRowVM: sublistRowVM)
@@ -69,6 +76,15 @@ struct ListRowView: View {
                     .padding(.leading, 20)
                 }
             }
+            if addNewSublist {
+                ListRowView(listRowVM: ListRowViewModel.newListRow()) { result in
+                    if case .success(let newListRow) = result {
+                        self.listRowVM.addSublistRow(newList: newListRow)
+                        self.addNewSublist.toggle()
+                    }
+                }.padding(.horizontal)
+            }
+           
         }
     }
     

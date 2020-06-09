@@ -12,6 +12,7 @@ struct ListView: View {
     
     @ObservedObject var listVM: ListViewModel
     @State var presentAddNewItem = false
+    @State var value: CGFloat = 0
     
     var body: some View {
         
@@ -28,8 +29,22 @@ struct ListView: View {
                 }
             }
         }
+            .offset(y: -self.value)
+            .animation(.spring())
+            .onAppear {
+                
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                    let height = value.height
+                    self.value = height
+                }
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {_ in
+                    self.value = 0
+                }
+                
+            }
             
-        .animation(.interactiveSpring())
+        //.animation(.interactiveSpring())
         .listStyle(DefaultListStyle())
         .navigationBarTitle("\(listVM.title)")
         

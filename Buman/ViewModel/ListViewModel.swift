@@ -18,8 +18,8 @@ final class ListViewModel: ObservableObject, Identifiable {
     @Published var newTask = ""
     
     func addListRow(newList: ListRowModel) {
-        let newTaskVM = ListRowViewModel(listRow: newList)
-        listRowsVM.append(newTaskVM)
+        let newListRowVM = ListRowViewModel(listRow: newList)
+        listRowsVM.append(newListRowVM)
     }
     func removeListRow(atOffsets: IndexSet) {
         listRowsVM.remove(atOffsets: atOffsets)

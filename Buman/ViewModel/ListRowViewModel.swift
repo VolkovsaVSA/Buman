@@ -56,6 +56,10 @@ final class ListRowViewModel: ObservableObject, Identifiable {
     func removeSublistItemAtIndex(index: Int) {
         subListRowsVM.remove(at: index)
     }
+    func addSublistRow(newList: ListRowModel) {
+        let newListRowVM = ListRowViewModel(listRow: newList)
+        subListRowsVM.append(newListRowVM)
+    }
     
     private func changeSublistIsComplete(subListVM: [ListRowViewModel]) {
         for (_, value) in subListVM.enumerated() {

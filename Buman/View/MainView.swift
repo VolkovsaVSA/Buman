@@ -17,6 +17,7 @@ struct MainView: View {
         //UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.yellow]
         UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
         UITableView.appearance().backgroundColor = .systemGroupedBackground
+        print(UIDevice.current.name)
     }
     
     
