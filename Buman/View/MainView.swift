@@ -22,7 +22,7 @@ struct MainView: View {
     
     
     @ObservedObject var navTitle = NavigationTitleViewModel()
-    @ObservedObject var listVM = ListsViewModel()
+    @EnvironmentObject var listVM: ListsViewModel
     
     var body: some View {
         
@@ -38,7 +38,7 @@ struct MainView: View {
                     Text("Tasks")
                 }.tag(0)
                 
-                ListsView(listsVM: listVM)
+                ListsView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                             .font(.title)

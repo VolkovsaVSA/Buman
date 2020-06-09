@@ -14,8 +14,13 @@ final class ListViewModel: ObservableObject, Identifiable {
     @Published var title: String
     @Published var systemImage: String
     @Published var colorSystemImage: Color
-    @Published var listRowsVM: [ListRowViewModel] = []
+    @Published var listRowsVM: [ListRowViewModel] = [] {
+        didSet {
+            listRowVMCount = listRowsVM.count
+        }
+    }
     @Published var newTask = ""
+    @Published var listRowVMCount: Int
     
     func addListRow(newList: ListRowModel) {
         let newListRowVM = ListRowViewModel(listRow: newList)
@@ -24,9 +29,6 @@ final class ListViewModel: ObservableObject, Identifiable {
     func removeListRow(atOffsets: IndexSet) {
         listRowsVM.remove(atOffsets: atOffsets)
     }
-    func listRowVMCount()->Int {
-        return listRowsVM.count
-    }
     
     
     init(list: ListModel) {
@@ -34,12 +36,12 @@ final class ListViewModel: ObservableObject, Identifiable {
         self.title = list.title
         self.systemImage = list.systemImage
         self.colorSystemImage = list.colorSystemImage
+        self.listRowVMCount = list.listRows.count
         
         list.listRows.forEach({ row in
             self.listRowsVM.append(ListRowViewModel(listRow: row))
         })
-       
-        
+
     }
     
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 final class ListsViewModel: ObservableObject, Identifiable {
     @Published var lists: [ListViewModel] = []
@@ -15,5 +16,6 @@ final class ListsViewModel: ObservableObject, Identifiable {
         ListOfLists.forEach { list in
             lists.append(ListViewModel(list: list))
         }
+
     }
 }

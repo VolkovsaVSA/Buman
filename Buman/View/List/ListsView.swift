@@ -11,19 +11,18 @@ import SwiftUI
 struct ListsView: View {
     
     @State private var isEditMode = EditMode.inactive
-    @ObservedObject var listsVM: ListsViewModel
+    @EnvironmentObject var listsVM: ListsViewModel
     
     var body: some View {
         
-        //Color(.systemGroupedBackground)
-        List(listsVM.lists) { list in
+        List(listsVM.lists.indices, id: \.self) { index in
             
-            NavigationLink(destination: ListView(listVM: list)) {
+            NavigationLink(destination: ListView(listVM: self.listsVM.lists[index])) {
                 HStack {
-                    IconImageView(image: list.systemImage, color: list.colorSystemImage, imageScale: 16)
-                    Text("\(list.title)")
+                    IconImageView(image: self.listsVM.lists[index].systemImage, color: self.listsVM.lists[index].colorSystemImage, imageScale: 16)
+                    Text("\(self.listsVM.lists[index].title)")
                     Spacer()
-                    Text("\(list.listRowVMCount())")
+                    Text("\(self.listsVM.lists[index].listRowVMCount)")
                 }
             }
             .introspectTableView { (tv) in
@@ -41,6 +40,6 @@ struct ListsView: View {
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
-        ListsView(listsVM: ListsViewModel())
+        ListsView()
     }
 }

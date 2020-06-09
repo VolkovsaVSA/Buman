@@ -43,7 +43,7 @@ struct ListRowView: View {
                     }
                 }
                 .font(Font.system(size: 17, weight: listRowVM.fontWeight, design: .default))
-
+                
                 if listRowVM.isEditing && !listRowVM.title.isEmpty {
                     Button(action: {
                        

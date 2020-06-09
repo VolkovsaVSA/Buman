@@ -14,6 +14,7 @@ struct ListView: View {
     @State var presentAddNewItem = false
     @State var value: CGFloat = 0
     
+    
     var body: some View {
         
         List {
@@ -29,25 +30,36 @@ struct ListView: View {
                 }
             }
         }
-            .offset(y: -self.value)
-            .animation(.spring())
-            .onAppear {
+        
+        .onAppear {
+            
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+                let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                let height = value.height
+                let listViewHeight = self.listVM.listRowsVM.count * 44
+                let visibleScreenHeight = UIScreen.main.bounds.height - height - 200
                 
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
-                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-                    let height = value.height
+                let difference = CGFloat(listViewHeight) - visibleScreenHeight
+                
+                if (difference > 0) && (difference < height - 200) {
+                    self.value = difference
+                } else if difference > height - 200 {
                     self.value = height
                 }
-                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {_ in
-                    self.value = 0
-                }
-                
+                print(difference)
+                print(height)
+                print(UIScreen.main.bounds.height)
+            }
+            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {_ in
+                self.value = 0
             }
             
-        //.animation(.interactiveSpring())
+        }
+            
         .listStyle(DefaultListStyle())
         .navigationBarTitle("\(listVM.title)")
-        
+        .offset(y: -self.value)
+        .animation(.spring())
     }
     
 }
