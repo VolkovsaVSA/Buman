@@ -11,7 +11,7 @@ import SwiftUI
 struct ListsView: View {
     
     @State private var isEditMode = EditMode.inactive
-    @EnvironmentObject var listsVM: ListsViewModel
+    @ObservedObject var listsVM: ListsViewModel
     
     var body: some View {
         
@@ -32,14 +32,15 @@ struct ListsView: View {
         }
         .listStyle(GroupedListStyle())
         .environment(\.horizontalSizeClass, .regular)
-        
-            
+        .onAppear {
+            self.listsVM.refreshCount()
+        }
         
     }
 }
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
-        ListsView()
+        ListsView(listsVM: ListsViewModel())
     }
 }

@@ -29,6 +29,9 @@ final class ListViewModel: ObservableObject, Identifiable {
     func removeListRow(atOffsets: IndexSet) {
         listRowsVM.remove(atOffsets: atOffsets)
     }
+    func calcCount() {
+        listRowVMCount = listRowsVM.count
+    }
     
     
     init(list: ListModel) {

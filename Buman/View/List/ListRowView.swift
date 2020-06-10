@@ -46,9 +46,7 @@ struct ListRowView: View {
                 
                 if listRowVM.isEditing && !listRowVM.title.isEmpty {
                     Button(action: {
-                       
                         self.addNewSublist.toggle()
-                        
                     }, label: {
                         Image(systemName: "plus.circle")
                             .font(Font.system(size: 20))
