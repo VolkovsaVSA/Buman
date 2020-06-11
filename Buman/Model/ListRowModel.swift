@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ListRowModel: Identifiable, ObservableObject {
+struct ListRowModel: Identifiable {
     var id = UUID()
     var title: String
     var isExpand: Bool

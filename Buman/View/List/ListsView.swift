@@ -10,31 +10,38 @@ import SwiftUI
 
 struct ListsView: View {
     
-    @State private var isEditMode = EditMode.inactive
+    //@State private var isEditMode = EditMode.inactive
     @ObservedObject var listsVM: ListsViewModel
-    
+   
     var body: some View {
         
-        List(listsVM.lists.indices, id: \.self) { index in
+        List {
             
-            NavigationLink(destination: ListView(listVM: self.listsVM.lists[index])) {
-                HStack {
-                    IconImageView(image: self.listsVM.lists[index].systemImage, color: self.listsVM.lists[index].colorSystemImage, imageScale: 16)
-                    Text("\(self.listsVM.lists[index].title)")
-                    Spacer()
-                    Text("\(self.listsVM.lists[index].listRowVMCount)")
+            ForEach (listsVM.lists) { list in
+                NavigationLink(destination: ListView(listVM: list)
+                .onReceive(list.objectWillChange, perform: { _ in
+                    self.listsVM.objectWillChange.send()
+                })) {
+                    HStack {
+                        IconImageView(image: list.systemImage, color: list.colorSystemImage, imageScale: 16)
+                        Text("\(list.title)")
+                        Spacer()
+                        Text("\(list.listRowsVM.count)")
+                    }
+                }
+                
+                .introspectTableView { (tv) in
+                    tv.backgroundColor = UIColor.systemGroupedBackground
                 }
             }
-            .introspectTableView { (tv) in
-                    tv.backgroundColor = UIColor.systemGroupedBackground
-            }
+            
+            
+            
             
         }
         .listStyle(GroupedListStyle())
         .environment(\.horizontalSizeClass, .regular)
-        .onAppear {
-            self.listsVM.refreshCount()
-        }
+        
         
     }
 }
