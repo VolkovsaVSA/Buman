@@ -88,6 +88,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6803A8B92498FB0F009F9C47 /* ListViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				681094E62482297400472AAA /* ListsViewModel.swift */,
+				681094E424821CA100472AAA /* ListViewModel.swift */,
+				681094D6247D4B9000472AAA /* ListRowViewModel.swift */,
+			);
+			path = ListViewModel;
+			sourceTree = "<group>";
+		};
 		681094D5247D4A4D00472AAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +115,7 @@
 				681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */,
 				683D99D42498828E0087A190 /* ColorSetViewModel.swift */,
 				683D99D8249898EA0087A190 /* IconSetViewModel.swift */,
-				681094E62482297400472AAA /* ListsViewModel.swift */,
-				681094E424821CA100472AAA /* ListViewModel.swift */,
-				681094D6247D4B9000472AAA /* ListRowViewModel.swift */,
+				6803A8B92498FB0F009F9C47 /* ListViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

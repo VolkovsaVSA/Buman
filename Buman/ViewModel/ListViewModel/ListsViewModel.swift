@@ -12,6 +12,9 @@ import Combine
 final class ListsViewModel: ObservableObject {
     @Published var lists: [ListViewModel] = [] 
     
+    func addList(list: ListModel) {
+        lists.append(ListViewModel(list: list))
+    }
     
     init() {
         ListOfLists.forEach { list in

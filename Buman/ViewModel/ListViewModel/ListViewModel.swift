@@ -23,9 +23,9 @@ final class ListViewModel: ObservableObject, Identifiable {
         let newListRowVM = ListRowViewModel(listRow: newList)
         listRowsVM.append(newListRowVM)
     }
-    func removeListRow(atOffsets: IndexSet) {
-        listRowsVM.remove(atOffsets: atOffsets)
-    }
+//    func removeListRow(atOffsets: IndexSet) {
+//        listRowsVM.remove(atOffsets: atOffsets)
+//    }
     
     
     init(list: ListModel) {

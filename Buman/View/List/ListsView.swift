@@ -37,6 +37,9 @@ struct ListsView: View {
                     tv.backgroundColor = UIColor.systemGroupedBackground
                 }
             }
+            .onDelete { indexSet in
+                self.listsVM.lists.remove(atOffsets: indexSet)
+            }
             
             
             Button(action: {
@@ -56,7 +59,7 @@ struct ListsView: View {
             
         }
         .sheet(isPresented: $showModal) {
-            AddNewListView()
+            AddNewListView(listsVM: self.listsVM)
                 .background(Color(.systemGroupedBackground))
                 .edgesIgnoringSafeArea(.all)
             }

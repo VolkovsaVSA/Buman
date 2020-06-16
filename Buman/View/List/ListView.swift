@@ -21,7 +21,8 @@ struct ListView: View {
                 ListRowView(listRowVM: listRowVM)
             }
             .onDelete { indexSet in
-                self.listVM.removeListRow(atOffsets: indexSet)
+                //self.listVM.removeListRow(atOffsets: indexSet)
+                self.listVM.listRowsVM.remove(atOffsets: indexSet)
             }
             ListRowView(listRowVM: ListRowViewModel.newListRow()) { result in
                 if case .success(let newListRow) = result {

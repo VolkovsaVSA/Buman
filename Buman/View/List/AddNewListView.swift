@@ -13,9 +13,9 @@ struct AddNewListView: View {
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var colorsVM = ColorSetViewModel()
     @ObservedObject var iconsVM = IconSetViewModel()
+    @ObservedObject var listsVM: ListsViewModel
     
     @State private var newListTitle = ""
-    @State private var buttonIsDisable = true
     
     var size = UIScreen.main.bounds.width/10
     
@@ -33,24 +33,17 @@ struct AddNewListView: View {
                     .padding()
                     Spacer()
                     Button(action: {
-                        //some action
+                        self.listsVM.addList(list: ListModel(title: self.newListTitle, listRows: [], systemImage: self.iconsVM.selectedIcon(), colorSystemImage: self.colorsVM.selectedColor()))
+                        self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Done")
                     }
-                    .disabled(self.buttonIsDisable)
+                    .disabled(self.newListTitle.isEmpty)
                     .padding()
                 }
                 IconImageView(image: iconsVM.selectedIcon(), color: colorsVM.selectedColor(), imageScale: 50)
                     .padding(20)
-                TextField("New list title", text: $newListTitle, onEditingChanged: { _ in
-                    if self.newListTitle != "" {
-                        self.buttonIsDisable = false
-                    } else {
-                        self.buttonIsDisable = true
-                    }
-                }, onCommit: {
-                    
-                })
+                TextField("New list title", text: $newListTitle)
                     .introspectTextField(customize: { tf in
                         tf.clearButtonMode = .whileEditing
                         tf.backgroundColor = .systemGray6
@@ -58,8 +51,8 @@ struct AddNewListView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
-                    .font(Font.system(size: 26, weight: .regular, design: .rounded))
-                Divider()
+                    .font(Font.system(size: 26, weight: .regular, design: .default))
+                //Divider()
                     .padding(.top)
                 ScrollView {
                     ColorSetView(colorsVM: colorsVM)
@@ -73,10 +66,12 @@ struct AddNewListView: View {
             }
         }
     }
+    
+    
 }
 
 struct AddNewListView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewListView()
+        AddNewListView(listsVM: ListsViewModel())
     }
 }
