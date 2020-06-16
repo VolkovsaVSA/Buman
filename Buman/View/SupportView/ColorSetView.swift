@@ -17,10 +17,10 @@ struct ColorSetView: View {
         
         ZStack {
             VStack {
-                ForEach(colorsVM.colorSet, id: \.self) { colors in
+                ForEach(colorsVM.colorSet.indices, id:\.self) { index1 in
                     HStack(spacing: self.size - self.size/2) {
-                        ForEach(colors) { color in
-                            ColorView(colorSetVM: self.colorsVM, color: color)
+                        ForEach(self.colorsVM.colorSet[index1].indices) { index2 in
+                            ColorView(colorSetVM: self.colorsVM, color: self.$colorsVM.colorSet[index1][index2])
                         }
                     }
                     .padding(.top)

@@ -11,14 +11,14 @@ import SwiftUI
 struct ColorView: View {
     
     @ObservedObject var colorSetVM: ColorSetViewModel
-    @State var color: ColorModel
+    @Binding var color: ColorModel
     var size = UIScreen.main.bounds.width/10
     
     var body: some View {
         
         Button(action: {
             self.colorSetVM.clearIsSelected()
-            self.color.isSelected.toggle()
+            self.color.isSelected = true
             print(self.colorSetVM.colorSet.description)
         }) {
             Circle()

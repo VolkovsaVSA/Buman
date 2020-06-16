@@ -7,12 +7,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class ColorSetViewModel: ObservableObject {
-    @Published var colorSet = ColorSet2
+    @Published var colorSet = ColorSet
     
     func clearIsSelected() {
-        colorSet = ColorSet2
+        colorSet = ColorSet
+    }
+    
+    func selectedColor()-> Color {
+        var selectedColor = Color.red
+        colorSet.forEach { colorSetRow in
+            colorSetRow.forEach { color in
+                if color.isSelected {
+                    selectedColor = color.color
+                }
+            }
+        }
+        return selectedColor
     }
 }
 

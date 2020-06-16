@@ -40,7 +40,7 @@ struct AddNewListView: View {
                     .disabled(self.buttonIsDisable)
                     .padding()
                 }
-                IconImageView(image: "plus", color: Color(.systemRed), imageScale: 50)
+                IconImageView(image: iconsVM.selectedIcon(), color: colorsVM.selectedColor(), imageScale: 50)
                     .padding(20)
                 TextField("New list title", text: $newListTitle, onEditingChanged: { _ in
                     if self.newListTitle != "" {

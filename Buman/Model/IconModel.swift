@@ -16,7 +16,7 @@ struct IconModel: Identifiable, Hashable {
 
 var IconSet = [
     [
-        IconModel(icon: "list.bullet", isSelected: false),
+        IconModel(icon: "list.bullet", isSelected: true),
         IconModel(icon: "house.fill", isSelected: false),
         IconModel(icon: "flag.fill", isSelected: false),
         IconModel(icon: "mappin", isSelected: false),

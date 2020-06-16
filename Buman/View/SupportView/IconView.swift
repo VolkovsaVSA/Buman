@@ -10,13 +10,15 @@ import SwiftUI
 
 struct IconView: View {
     
-    @State var icon: IconModel
+    @ObservedObject var iconSetVM: IconSetViewModel
+    @Binding var icon: IconModel
     var size = UIScreen.main.bounds.width/10
     
     var body: some View {
         
         Button(action: {
-            self.icon.isSelected.toggle()
+            self.iconSetVM.clearIsSelected()
+            self.icon.isSelected = true
         }) {
             IconImageView(image: icon.icon, color: Color(.systemGray2), imageScale: self.size/2)
             .frame(width: self.size, height: self.size)
@@ -25,8 +27,8 @@ struct IconView: View {
     }
 }
 
-struct IconView_Previews: PreviewProvider {
-    static var previews: some View {
-        IconView(icon: IconSet.first!.first!)
-    }
-}
+//struct IconView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        IconView(iconSetVM: <#IconSetViewModel#>, icon: IconSet.first!.first!)
+//    }
+//}

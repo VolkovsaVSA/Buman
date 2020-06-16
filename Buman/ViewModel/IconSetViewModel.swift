@@ -14,4 +14,16 @@ final class IconSetViewModel: ObservableObject {
     func clearIsSelected() {
         iconSet = IconSet
     }
+    
+    func selectedIcon()-> String {
+        var selectedIcon = "list.bullet"
+        iconSet.forEach { iconSetRow in
+            iconSetRow.forEach { icon in
+                if icon.isSelected {
+                    selectedIcon = icon.icon
+                }
+            }
+        }
+        return selectedIcon
+    }
 }

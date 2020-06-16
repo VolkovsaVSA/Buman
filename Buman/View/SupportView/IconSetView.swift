@@ -17,10 +17,10 @@ struct IconSetView: View {
     var body: some View {
         
         VStack {
-            ForEach(iconsVM.iconSet, id: \.self) { icons in
+            ForEach(iconsVM.iconSet.indices, id: \.self) { index1 in
                 HStack(spacing: self.size - self.size/2) {
-                    ForEach(icons) { icon in
-                        IconView(icon: icon)
+                    ForEach(self.iconsVM.iconSet[index1].indices) { index2 in
+                        IconView(iconSetVM: self.iconsVM, icon: self.$iconsVM.iconSet[index1][index2])
                     }
                 }
                 .padding(.top)
