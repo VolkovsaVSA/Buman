@@ -9,5 +9,9 @@
 import Foundation
 
 final class IconSetViewModel: ObservableObject {
-    @Published var listIconSet = IconSet
+    @Published var iconSet = IconSet
+    
+    func clearIsSelected() {
+        iconSet = IconSet
+    }
 }

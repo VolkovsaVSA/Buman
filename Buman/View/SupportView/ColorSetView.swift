@@ -20,12 +20,7 @@ struct ColorSetView: View {
                 ForEach(colorsVM.colorSet, id: \.self) { colors in
                     HStack(spacing: self.size - self.size/2) {
                         ForEach(colors) { color in
-                            
-                            ColorView(color: color)
-                            
-//                            Circle()
-//                                .frame(width: self.size, height: self.size)
-//                                .foregroundColor(color.color)
+                            ColorView(colorSetVM: self.colorsVM, color: color)
                         }
                     }
                     .padding(.top)

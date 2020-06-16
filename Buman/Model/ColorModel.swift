@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 struct ColorModel: Identifiable, Hashable {
+    
     let id = UUID()
     let color: Color
     var isSelected: Bool

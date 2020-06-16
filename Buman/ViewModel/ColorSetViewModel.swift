@@ -11,7 +11,7 @@ import Foundation
 final class ColorSetViewModel: ObservableObject {
     @Published var colorSet = ColorSet2
     
-    func clearIsselected() {
+    func clearIsSelected() {
         colorSet = ColorSet2
     }
 }
