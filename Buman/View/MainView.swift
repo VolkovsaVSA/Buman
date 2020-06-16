@@ -13,8 +13,6 @@ struct MainView: View {
     
     init() {
         UIScrollView.appearance().backgroundColor = .systemGroupedBackground
-        //UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.yellow]
-        //UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.yellow]
         UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
         UITableView.appearance().backgroundColor = .systemGroupedBackground
         print(UIDevice.current.name)

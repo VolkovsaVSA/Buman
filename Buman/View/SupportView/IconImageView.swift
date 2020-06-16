@@ -21,7 +21,6 @@ struct IconImageView: View {
             Image(systemName: image)
                 .font(Font.system(size: imageScale))
                 .foregroundColor(.white)
-            
         }
         .frame(width: imageScale * 2, height: imageScale * 2)
         .clipShape(Circle())

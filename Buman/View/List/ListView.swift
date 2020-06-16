@@ -11,7 +11,6 @@ import SwiftUI
 struct ListView: View {
     
     @ObservedObject var listVM: ListViewModel
-    @State var presentAddNewItem = false
     @State var value: CGFloat = 0
     
     
