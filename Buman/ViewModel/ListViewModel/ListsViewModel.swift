@@ -15,6 +15,13 @@ final class ListsViewModel: ObservableObject {
     func addList(list: ListModel) {
         lists.append(ListViewModel(list: list))
     }
+    func editList(lvm: ListViewModel) {
+        for (index, value) in lists.enumerated() {
+            if value.id == lvm.id {
+                lists[index] = lvm
+            }
+        }
+    }
     
     init() {
         ListOfLists.forEach { list in

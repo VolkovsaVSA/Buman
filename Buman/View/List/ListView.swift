@@ -10,9 +10,12 @@ import SwiftUI
 
 struct ListView: View {
     
+    @EnvironmentObject var listsVM: ListsViewModel
+    @EnvironmentObject var colorsVM: ColorSetViewModel
+    @EnvironmentObject var iconsVM: IconSetViewModel
     @ObservedObject var listVM: ListViewModel
     @State var value: CGFloat = 0
-    
+    @State private var showModal = false
     
     var body: some View {
         
@@ -30,7 +33,7 @@ struct ListView: View {
                 }
             }
         }
-        
+            
         .onAppear {
             
             NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
@@ -60,6 +63,21 @@ struct ListView: View {
         .navigationBarTitle("\(listVM.title)")
         .offset(y: -self.value)
         .animation(.spring())
+        .navigationBarItems(trailing: Button(action: {
+            
+            self.showModal.toggle()
+            
+        }, label: {
+            Image(systemName: "ellipsis.circle.fill")
+                .font(.title)
+        }))
+            .sheet(isPresented: $showModal) {
+                AddNewListView(lvm: self.listVM)
+                    .environmentObject(self.listsVM)
+                    .background(Color(.systemGroupedBackground))
+                    .edgesIgnoringSafeArea(.all)
+        }
+        
     }
     
 }

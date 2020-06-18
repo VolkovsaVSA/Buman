@@ -10,16 +10,22 @@ import SwiftUI
 
 struct AddNewListView: View {
     
+    @EnvironmentObject var listsVM: ListsViewModel
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var colorsVM = ColorSetViewModel()
     @ObservedObject var iconsVM = IconSetViewModel()
-    @ObservedObject var listsVM: ListsViewModel
     
-    @State private var newListTitle = ""
+    @State var newListTitle = ""
+    //    @State var newListIcon =
+    //    @State var newListColor = Color.red
+    var lvm: ListViewModel?
     
     var size = UIScreen.main.bounds.width/10
     
+    
+    
     var body: some View {
+        
         
         ZStack {
             //Color("TaskTabColor")
@@ -33,13 +39,30 @@ struct AddNewListView: View {
                     .padding()
                     Spacer()
                     Button(action: {
-                        self.listsVM.addList(list: ListModel(title: self.newListTitle, listRows: [], systemImage: self.iconsVM.selectedIcon(), colorSystemImage: self.colorsVM.selectedColor()))
+                        
+                        if let localLvm = self.lvm {
+                            
+                            localLvm.title = self.newListTitle
+                            localLvm.systemImage = self.iconsVM.selectedIcon()
+                            localLvm.colorSystemImage = self.colorsVM.selectedColor()
+                            
+                            self.listsVM.editList(lvm: localLvm)
+                            
+                        } else {
+                            
+                            let listModel = ListModel(title: self.newListTitle, listRows: [], systemImage: self.iconsVM.selectedIcon(), colorSystemImage: self.colorsVM.selectedColor())
+                            
+                            self.listsVM.lists.append(ListViewModel(list: listModel))
+                        }
+                        
                         self.presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("Done")
                     }
                     .disabled(self.newListTitle.isEmpty)
                     .padding()
+                }.onAppear {
+                    self.prepareEditListVM()
                 }
                 IconImageView(image: iconsVM.selectedIcon(), color: colorsVM.selectedColor(), imageScale: 50)
                     .padding(20)
@@ -52,7 +75,7 @@ struct AddNewListView: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                     .font(Font.system(size: 26, weight: .regular, design: .default))
-                //Divider()
+                    //Divider()
                     .padding(.top)
                 ScrollView {
                     ColorSetView(colorsVM: colorsVM)
@@ -68,10 +91,18 @@ struct AddNewListView: View {
     }
     
     
+    fileprivate func prepareEditListVM() {
+        if self.lvm != nil {
+            self.iconsVM.selectImage(selectedImage: self.lvm!.systemImage)
+            self.colorsVM.selectColor(selectedColor: self.lvm!.colorSystemImage)
+            self.newListTitle = self.lvm!.title
+        }
+    }
+    
 }
 
-struct AddNewListView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddNewListView(listsVM: ListsViewModel())
-    }
-}
+//struct AddNewListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddNewListView(listsVM: ListsViewModel())
+//    }
+//}

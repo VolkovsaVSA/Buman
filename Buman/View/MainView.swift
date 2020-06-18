@@ -20,7 +20,7 @@ struct MainView: View {
     
     
     @ObservedObject var navTitle = NavigationTitleViewModel()
-    @ObservedObject var listVM = ListsViewModel()
+    //@ObservedObject var listVM = ListsViewModel()
     //@EnvironmentObject var listVM: ListsViewModel
     
     var body: some View {
@@ -37,7 +37,7 @@ struct MainView: View {
                     Text("Tasks")
                 }.tag(0)
                 
-                ListsView(listsVM: listVM)
+                ListsView()
                     .tabItem {
                         Image(systemName: "list.bullet")
                             .font(.title)
@@ -46,17 +46,14 @@ struct MainView: View {
                 
             }
             .navigationBarTitle("\(navTitle.title)", displayMode: .automatic)
-            .navigationBarItems(
-                //                leading: Button(action: {
-                //                }, label: {
-                //                    Image(systemName: "person.crop.circle.fill")
-                //                        .font(.title)
-                //                }),
-                trailing: Button(action: {
-                }, label: {
-                    Image(systemName: "person.crop.circle.fill")
-                        .font(.title)
-                }))
+            .navigationBarItems(trailing: Button(action: {
+                
+                
+                
+            }, label: {
+                Image(systemName: "person.crop.circle.fill")
+                    .font(.title)
+            }))
             
         }
         

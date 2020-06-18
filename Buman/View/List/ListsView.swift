@@ -11,9 +11,7 @@ import PartialSheet
 
 struct ListsView: View {
     
-    @EnvironmentObject var partialSheet: PartialSheetManager
-    //@State private var isEditMode = EditMode.inactive
-    @ObservedObject var listsVM: ListsViewModel
+    @EnvironmentObject var listsVM: ListsViewModel
     @State private var showModal = false
     
     var body: some View {
@@ -59,7 +57,8 @@ struct ListsView: View {
             
         }
         .sheet(isPresented: $showModal) {
-            AddNewListView(listsVM: self.listsVM)
+            AddNewListView()
+                .environmentObject(self.listsVM)
                 .background(Color(.systemGroupedBackground))
                 .edgesIgnoringSafeArea(.all)
             }
@@ -70,7 +69,7 @@ struct ListsView: View {
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
-        ListsView(listsVM: ListsViewModel())
+        ListsView()
         .environmentObject(PartialSheetManager())
     }
 }

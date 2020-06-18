@@ -15,7 +15,18 @@ final class IconSetViewModel: ObservableObject {
         iconSet = IconSet
     }
     
-    func selectedIcon()-> String {
+    func selectImage(selectedImage: String) {
+        clearIsSelected()
+        for (index1, _) in iconSet.enumerated() {
+            for (index2, value2) in iconSet[index1].enumerated() {
+                if value2.icon == selectedImage {
+                    iconSet[index1][index2].isSelected = true
+                }
+            }
+        }
+    }
+    
+    func selectedIcon() -> String {
         var selectedIcon = "list.bullet"
         iconSet.forEach { iconSetRow in
             iconSetRow.forEach { icon in
