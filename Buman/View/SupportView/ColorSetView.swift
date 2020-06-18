@@ -21,9 +21,11 @@ struct ColorSetView: View {
                     HStack(spacing: self.size - self.size/2) {
                         ForEach(self.colorsVM.colorSet[index1].indices) { index2 in
                             ColorView(colorSetVM: self.colorsVM, color: self.$colorsVM.colorSet[index1][index2])
+                            .shadow(radius: 6)
+                                //.shadow(color: Color.gray, radius: 6, x: 3, y: 3)
                         }
                     }
-                    .padding(.top)
+                    .padding([.horizontal, .top])
                 }
             }
         }

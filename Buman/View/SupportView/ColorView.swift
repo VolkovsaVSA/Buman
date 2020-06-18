@@ -24,6 +24,8 @@ struct ColorView: View {
             Circle()
             .frame(width: self.size, height: self.size)
             .foregroundColor(color.color)
+                
+            
         }
         
         

@@ -17,7 +17,8 @@ struct IconImageView: View {
     var body: some View {
         
         ZStack {
-            color
+            //color
+            LinearGradient(gradient: Gradient(colors: [color.opacity(0.5), color]), startPoint: .top, endPoint: .bottom)
             Image(systemName: image)
                 .font(Font.system(size: imageScale))
                 .foregroundColor(.white)

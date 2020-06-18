@@ -65,6 +65,7 @@ struct AddNewListView: View {
                     self.prepareEditListVM()
                 }
                 IconImageView(image: iconsVM.selectedIcon(), color: colorsVM.selectedColor(), imageScale: 50)
+                .shadow(radius: 12)
                     .padding(20)
                 TextField("New list title", text: $newListTitle)
                     .introspectTextField(customize: { tf in
