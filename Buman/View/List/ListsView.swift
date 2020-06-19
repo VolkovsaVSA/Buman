@@ -17,7 +17,6 @@ struct ListsView: View {
     var body: some View {
         
         List {
-            
             ForEach (listsVM.lists) { list in
                 NavigationLink(destination: ListView(listVM: list)
                     .onReceive(list.objectWillChange, perform: { _ in

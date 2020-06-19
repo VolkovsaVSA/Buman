@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Introspect
 
 struct ListView: View {
     
@@ -21,42 +22,43 @@ struct ListView: View {
         
         List {
             ForEach(listVM.listRowsVM) { listRowVM in
-                ListRowView(listRowVM: listRowVM)
+                ListRowView(listRowVM: listRowVM, listVM: self.listVM)
             }
             .onDelete { indexSet in
                 //self.listVM.removeListRow(atOffsets: indexSet)
                 self.listVM.listRowsVM.remove(atOffsets: indexSet)
             }
-            ListRowView(listRowVM: ListRowViewModel.newListRow()) { result in
+            ListRowView(listRowVM: ListRowViewModel.newListRow(), listVM: self.listVM) { result in
                 if case .success(let newListRow) = result {
                     self.listVM.addListRow(newList: newListRow)
                 }
             }
         }
-            
-        .onAppear {
-            
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
-                let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
-                let height = value.height
-                let listViewHeight = self.listVM.listRowsVM.count * 44
-                let visibleScreenHeight = UIScreen.main.bounds.height - height - 200
-                
-                let difference = CGFloat(listViewHeight) - visibleScreenHeight
-                
-                if (difference > 0) && (difference < height - 200) {
-                    self.value = difference
-                } else if difference > height - 200 {
-                    self.value = height
+        .introspectTableView(customize: { tableView in
+            tableView.backgroundColor = .clear
+            tableView.separatorStyle = .none
+        })
+            .onAppear {
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notif in
+                    let value = notif.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
+                    let height = value.height
+                    let listViewHeight = self.listVM.listRowsVM.count * 44
+                    let visibleScreenHeight = UIScreen.main.bounds.height - height - 200
+                    
+                    let difference = CGFloat(listViewHeight) - visibleScreenHeight
+                    
+                    if (difference > 0) && (difference < height - 200) {
+                        self.value = difference
+                    } else if difference > height - 200 {
+                        self.value = height
+                    }
+                    print(difference)
+                    print(height)
+                    print(UIScreen.main.bounds.height)
                 }
-                print(difference)
-                print(height)
-                print(UIScreen.main.bounds.height)
-            }
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {_ in
-                self.value = 0
-            }
-            
+                NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) {_ in
+                    self.value = 0
+                }
         }
             
         .listStyle(DefaultListStyle())
@@ -64,12 +66,11 @@ struct ListView: View {
         .offset(y: -self.value)
         .animation(.spring())
         .navigationBarItems(trailing: Button(action: {
-            
             self.showModal.toggle()
-            
         }, label: {
             Image(systemName: "ellipsis.circle.fill")
                 .font(.title)
+                .foregroundColor(self.listVM.colorSystemImage)
         }))
             .sheet(isPresented: $showModal) {
                 AddNewListView(lvm: self.listVM)
@@ -77,6 +78,7 @@ struct ListView: View {
                     .background(Color(.systemGroupedBackground))
                     .edgesIgnoringSafeArea(.all)
         }
+        
         
     }
     

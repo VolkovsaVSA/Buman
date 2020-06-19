@@ -15,18 +15,18 @@ struct MainView: View {
         UIScrollView.appearance().backgroundColor = .systemGroupedBackground
         UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
         UITableView.appearance().backgroundColor = .systemGroupedBackground
+        //UITableView.appearance().separatorColor = .clear
+        UITableView.appearance().tableFooterView = UIView()
         print(UIDevice.current.name)
     }
     
     
     @ObservedObject var navTitle = NavigationTitleViewModel()
-    //@ObservedObject var listVM = ListsViewModel()
-    //@EnvironmentObject var listVM: ListsViewModel
+    
     
     var body: some View {
         
         NavigationView {
-            
             TabView(selection: $navTitle.selectedTab) {
                 ScrollView {
                     TaskView()
@@ -47,20 +47,18 @@ struct MainView: View {
             }
             .navigationBarTitle("\(navTitle.title)", displayMode: .automatic)
             .navigationBarItems(trailing: Button(action: {
-                
-                
-                
+                //user profile
             }, label: {
                 Image(systemName: "person.crop.circle.fill")
                     .font(.title)
             }))
             
         }
-        
     }
     
-    
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

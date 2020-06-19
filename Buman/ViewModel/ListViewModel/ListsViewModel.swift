@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Combine
+import SwiftUI
 
 final class ListsViewModel: ObservableObject {
     @Published var lists: [ListViewModel] = [] 
@@ -21,6 +21,15 @@ final class ListsViewModel: ObservableObject {
                 lists[index] = lvm
             }
         }
+    }
+    func getListColor(id: UUID) -> Color {
+        var color = Color.red
+        lists.forEach { listVM in
+            if id == listVM.id {
+                color = listVM.colorSystemImage
+            }
+        }
+        return color
     }
     
     init() {

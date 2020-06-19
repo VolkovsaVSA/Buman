@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ListRowView: View {
-    
+    @EnvironmentObject var listsVM: ListsViewModel
     @ObservedObject var listRowVM: ListRowViewModel
+    @ObservedObject var listVM: ListViewModel
     @State var addNewSublist = false
     
     var onCommit: (Result<ListRowModel, InputError>) -> Void = { _ in }
@@ -27,7 +28,7 @@ struct ListRowView: View {
                 } else {
                     Image(systemName: "plus.circle.fill")
                         .font(Font.system(size: 20))
-                        .foregroundColor(Color(.systemRed))
+                        .foregroundColor(self.listVM.colorSystemImage)
                 }
                 
                 TextField("Enter new task", text: self.$listRowVM.title, onEditingChanged: { isChange in
@@ -65,7 +66,7 @@ struct ListRowView: View {
                 if listRowVM.isExpand {
                     Section {
                         ForEach (listRowVM.subListRowsVM) { sublistRowVM in
-                            ListRowView(listRowVM: sublistRowVM)
+                            ListRowView(listRowVM: sublistRowVM, listVM: self.listVM)
                         }
                         .onDelete { indexSet in
                             self.listRowVM.removeSublistItem(atOffsets: indexSet)
@@ -75,7 +76,7 @@ struct ListRowView: View {
                 }
             }
             if addNewSublist {
-                ListRowView(listRowVM: ListRowViewModel.newListRow()) { result in
+                ListRowView(listRowVM: ListRowViewModel.newListRow(), listVM: self.listVM) { result in
                     if case .success(let newListRow) = result {
                         self.listRowVM.addSublistRow(newList: newListRow)
                         self.addNewSublist.toggle()
@@ -84,6 +85,7 @@ struct ListRowView: View {
             }
            
         }
+        .listRowBackground(Color("ListCellColor"))
     }
     
     enum InputError: Error {
@@ -92,8 +94,8 @@ struct ListRowView: View {
     
 }
 
-struct ListRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListRowView(listRowVM: ListRowViewModel(listRow: ListOfLists[0].listRows[1]))
-    }
-}
+//struct ListRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListRowView(listRowVM: ListRowViewModel(listRow: ListOfLists[0].listRows[1]), listVM: ListOfLists[0])
+//    }
+//}
