@@ -12,7 +12,7 @@ import Combine
 
 final class ListViewModel: ObservableObject, Identifiable {
     
-    let id: UUID
+    let id: String
     @Published var title: String
     @Published var systemImage: String
     @Published var colorSystemImage: Color

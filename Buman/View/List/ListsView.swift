@@ -69,6 +69,6 @@ struct ListsView: View {
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
         ListsView()
-        .environmentObject(PartialSheetManager())
+        .environmentObject(ListsViewModel())
     }
 }

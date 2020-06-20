@@ -15,7 +15,6 @@ struct MainView: View {
         UIScrollView.appearance().backgroundColor = .systemGroupedBackground
         UITableViewCell.appearance().backgroundColor = UIColor(named: "TaskTabColor")
         UITableView.appearance().backgroundColor = .systemGroupedBackground
-        //UITableView.appearance().separatorColor = .clear
         UITableView.appearance().tableFooterView = UIView()
         print(UIDevice.current.name)
     }

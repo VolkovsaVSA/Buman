@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,8 @@
 		683D99D7249884A30087A190 /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D99D6249884A30087A190 /* IconModel.swift */; };
 		683D99D9249898EA0087A190 /* IconSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D99D8249898EA0087A190 /* IconSetViewModel.swift */; };
 		686FB30B24837173003A531C /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FB30A24837173003A531C /* TaskListView.swift */; };
-		68C5A87C249751A100397454 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 68C5A87B249751A100397454 /* PartialSheet */; };
+		6884BD41249D1FDB00FE9F3E /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884BD40249D1FDB00FE9F3E /* TaskModel.swift */; };
+		6884BD43249D2B6400FE9F3E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884BD42249D2B6400FE9F3E /* UserModel.swift */; };
 		68C5A87E24975C0B00397454 /* AddNewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C5A87D24975C0B00397454 /* AddNewListView.swift */; };
 		68C5A8802497935700397454 /* ColorSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C5A87F2497935700397454 /* ColorSetView.swift */; };
 		68C5A8822497957A00397454 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C5A8812497957A00397454 /* ColorModel.swift */; };
@@ -61,6 +62,8 @@
 		683D99D6249884A30087A190 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		683D99D8249898EA0087A190 /* IconSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSetViewModel.swift; sourceTree = "<group>"; };
 		686FB30A24837173003A531C /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
+		6884BD40249D1FDB00FE9F3E /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		6884BD42249D2B6400FE9F3E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		68C5A87D24975C0B00397454 /* AddNewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewListView.swift; sourceTree = "<group>"; };
 		68C5A87F2497935700397454 /* ColorSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetView.swift; sourceTree = "<group>"; };
 		68C5A8812497957A00397454 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
@@ -82,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68C5A87C249751A100397454 /* PartialSheet in Frameworks */,
 				FC7AF485965BA9B765B569B2 /* Pods_Buman.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,8 +105,9 @@
 		681094D5247D4A4D00472AAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				681094D3247D46AF00472AAA /* ListModel.swift */,
-				681094D1247D2C4500472AAA /* ListRowModel.swift */,
+				6884BD40249D1FDB00FE9F3E /* TaskModel.swift */,
+				6884BD42249D2B6400FE9F3E /* UserModel.swift */,
+				6884BD3F249D1F0700FE9F3E /* ListModel */,
 				68C5A8812497957A00397454 /* ColorModel.swift */,
 				683D99D6249884A30087A190 /* IconModel.swift */,
 			);
@@ -153,6 +156,15 @@
 				6803A8B72498D6F2009F9C47 /* IconView.swift */,
 			);
 			path = SupportView;
+			sourceTree = "<group>";
+		};
+		6884BD3F249D1F0700FE9F3E /* ListModel */ = {
+			isa = PBXGroup;
+			children = (
+				681094D3247D46AF00472AAA /* ListModel.swift */,
+				681094D1247D2C4500472AAA /* ListRowModel.swift */,
+			);
+			path = ListModel;
 			sourceTree = "<group>";
 		};
 		68EB9857247D1DC100B435A7 = {
@@ -245,7 +257,6 @@
 			);
 			name = Buman;
 			packageProductDependencies = (
-				68C5A87B249751A100397454 /* PartialSheet */,
 			);
 			productName = Buman;
 			productReference = 68EB9860247D1DC100B435A7 /* Buman.app */;
@@ -276,7 +287,6 @@
 			);
 			mainGroup = 68EB9857247D1DC100B435A7;
 			packageReferences = (
-				68C5A87A249751A100397454 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 68EB9861247D1DC100B435A7 /* Products */;
 			projectDirPath = "";
@@ -368,6 +378,8 @@
 				681094EE2482486600472AAA /* ListRowView.swift in Sources */,
 				686FB30B24837173003A531C /* TaskListView.swift in Sources */,
 				681094E524821CA100472AAA /* ListViewModel.swift in Sources */,
+				6884BD41249D1FDB00FE9F3E /* TaskModel.swift in Sources */,
+				6884BD43249D2B6400FE9F3E /* UserModel.swift in Sources */,
 				681094E0247EDFD400472AAA /* TaskView.swift in Sources */,
 				6803A8B42498C2CD009F9C47 /* IconSetView.swift in Sources */,
 				68C5A87E24975C0B00397454 /* AddNewListView.swift in Sources */,
@@ -568,25 +580,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		68C5A87A249751A100397454 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.5;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		68C5A87B249751A100397454 /* PartialSheet */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 68C5A87A249751A100397454 /* XCRemoteSwiftPackageReference "PartialSheet" */;
-			productName = PartialSheet;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 68EB9858247D1DC100B435A7 /* Project object */;
 }

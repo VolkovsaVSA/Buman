@@ -9,7 +9,7 @@
 import Foundation
 
 struct IconModel: Identifiable, Hashable {
-    let id = UUID()
+    let id = UUID().uuidString
     let icon: String
     var isSelected: Bool
 }

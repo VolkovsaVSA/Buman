@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 struct ListModel: Identifiable {
-    var id = UUID()
+    let id = UUID().uuidString
     var title: String
     var listRows: [ListRowModel]
     var systemImage: String

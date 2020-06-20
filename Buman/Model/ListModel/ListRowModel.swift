@@ -9,7 +9,7 @@
 import Foundation
 
 struct ListRowModel: Identifiable {
-    var id = UUID()
+    let id = UUID().uuidString
     var title: String
     var isExpand: Bool
     var isComplete: Bool

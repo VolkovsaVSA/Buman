@@ -22,7 +22,7 @@ final class ListsViewModel: ObservableObject {
             }
         }
     }
-    func getListColor(id: UUID) -> Color {
+    func getListColor(id: String) -> Color {
         var color = Color.red
         lists.forEach { listVM in
             if id == listVM.id {
