@@ -19,7 +19,6 @@ struct ColorView: View {
         Button(action: {
             self.colorSetVM.clearIsSelected()
             self.color.isSelected = true
-            print(self.colorSetVM.colorSet.description)
         }) {
             Circle()
             .frame(width: self.size, height: self.size)

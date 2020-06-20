@@ -21,7 +21,7 @@ struct IconSetView: View {
                 HStack(spacing: self.size - self.size/2) {
                     ForEach(self.iconsVM.iconSet[index1].indices) { index2 in
                         IconView(iconSetVM: self.iconsVM, icon: self.$iconsVM.iconSet[index1][index2])
-                        .shadow(radius: 6)
+                        .shadow(radius: 6, x: 3, y: 3)
                     }
                 }
                 .padding([.horizontal, .top])

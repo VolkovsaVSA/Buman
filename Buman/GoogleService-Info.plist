@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>486546075988-ahd5chkehd49feeipmql8e6fe159k1io.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.486546075988-ahd5chkehd49feeipmql8e6fe159k1io</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6unFkgfGrVz102VoIxI5ihbUrSxKkVHc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>486546075988</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>VSA.Buman</string>
+	<key>PROJECT_ID</key>
+	<string>buman-f5863</string>
+	<key>STORAGE_BUCKET</key>
+	<string>buman-f5863.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:486546075988:ios:2a7cd602c46e4fe5</string>
+	<key>DATABASE_URL</key>
+	<string>https://buman-f5863.firebaseio.com</string>
+</dict>
+</plist>

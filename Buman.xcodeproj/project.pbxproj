@@ -25,6 +25,12 @@
 		683D99D52498828E0087A190 /* ColorSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D99D42498828E0087A190 /* ColorSetViewModel.swift */; };
 		683D99D7249884A30087A190 /* IconModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D99D6249884A30087A190 /* IconModel.swift */; };
 		683D99D9249898EA0087A190 /* IconSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683D99D8249898EA0087A190 /* IconSetViewModel.swift */; };
+		684829F2249E768500AF9C41 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 684829F1249E768400AF9C41 /* GoogleService-Info.plist */; };
+		684829F4249E8DDF00AF9C41 /* TasksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684829F3249E8DDF00AF9C41 /* TasksViewModel.swift */; };
+		684829F6249E8DEC00AF9C41 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684829F5249E8DEC00AF9C41 /* TaskViewModel.swift */; };
+		684829F8249E96BF00AF9C41 /* FirestoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684829F7249E96BF00AF9C41 /* FirestoreManager.swift */; };
+		684829FB249EA3EB00AF9C41 /* GeometryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684829FA249EA3EB00AF9C41 /* GeometryManager.swift */; };
+		684829FD249EA9F400AF9C41 /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684829FC249EA9F400AF9C41 /* AddTaskView.swift */; };
 		686FB30B24837173003A531C /* TaskListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686FB30A24837173003A531C /* TaskListView.swift */; };
 		6884BD41249D1FDB00FE9F3E /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884BD40249D1FDB00FE9F3E /* TaskModel.swift */; };
 		6884BD43249D2B6400FE9F3E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6884BD42249D2B6400FE9F3E /* UserModel.swift */; };
@@ -61,6 +67,12 @@
 		683D99D42498828E0087A190 /* ColorSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetViewModel.swift; sourceTree = "<group>"; };
 		683D99D6249884A30087A190 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		683D99D8249898EA0087A190 /* IconSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSetViewModel.swift; sourceTree = "<group>"; };
+		684829F1249E768400AF9C41 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		684829F3249E8DDF00AF9C41 /* TasksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewModel.swift; sourceTree = "<group>"; };
+		684829F5249E8DEC00AF9C41 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		684829F7249E96BF00AF9C41 /* FirestoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreManager.swift; sourceTree = "<group>"; };
+		684829FA249EA3EB00AF9C41 /* GeometryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryManager.swift; sourceTree = "<group>"; };
+		684829FC249EA9F400AF9C41 /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		686FB30A24837173003A531C /* TaskListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListView.swift; sourceTree = "<group>"; };
 		6884BD40249D1FDB00FE9F3E /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		6884BD42249D2B6400FE9F3E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -105,8 +117,8 @@
 		681094D5247D4A4D00472AAA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6884BD40249D1FDB00FE9F3E /* TaskModel.swift */,
 				6884BD42249D2B6400FE9F3E /* UserModel.swift */,
+				6884BD40249D1FDB00FE9F3E /* TaskModel.swift */,
 				6884BD3F249D1F0700FE9F3E /* ListModel */,
 				68C5A8812497957A00397454 /* ColorModel.swift */,
 				683D99D6249884A30087A190 /* IconModel.swift */,
@@ -120,6 +132,7 @@
 				681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */,
 				683D99D42498828E0087A190 /* ColorSetViewModel.swift */,
 				683D99D8249898EA0087A190 /* IconSetViewModel.swift */,
+				684829F9249E9D5100AF9C41 /* TaskViewModel */,
 				6803A8B92498FB0F009F9C47 /* ListViewModel */,
 			);
 			path = ViewModel;
@@ -131,6 +144,7 @@
 				681094DF247EDFD400472AAA /* TaskView.swift */,
 				681094D9247D616700472AAA /* TaskMenuView.swift */,
 				686FB30A24837173003A531C /* TaskListView.swift */,
+				684829FC249EA9F400AF9C41 /* AddTaskView.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -156,6 +170,15 @@
 				6803A8B72498D6F2009F9C47 /* IconView.swift */,
 			);
 			path = SupportView;
+			sourceTree = "<group>";
+		};
+		684829F9249E9D5100AF9C41 /* TaskViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				684829F3249E8DDF00AF9C41 /* TasksViewModel.swift */,
+				684829F5249E8DEC00AF9C41 /* TaskViewModel.swift */,
+			);
+			path = TaskViewModel;
 			sourceTree = "<group>";
 		};
 		6884BD3F249D1F0700FE9F3E /* ListModel */ = {
@@ -191,12 +214,15 @@
 				68EB9863247D1DC100B435A7 /* AppDelegate.swift */,
 				68EB9865247D1DC100B435A7 /* SceneDelegate.swift */,
 				68F2EF47249CA2A70002BB95 /* NavigationConfigurator.swift */,
+				684829F7249E96BF00AF9C41 /* FirestoreManager.swift */,
+				684829FA249EA3EB00AF9C41 /* GeometryManager.swift */,
 				681094D5247D4A4D00472AAA /* Model */,
 				681094D8247D4BA900472AAA /* ViewModel */,
 				68EB9877247D1DDC00B435A7 /* View */,
 				68EB9869247D1DC300B435A7 /* Assets.xcassets */,
 				68EB986E247D1DC300B435A7 /* LaunchScreen.storyboard */,
 				68EB9871247D1DC300B435A7 /* Info.plist */,
+				684829F1249E768400AF9C41 /* GoogleService-Info.plist */,
 				68EB986B247D1DC300B435A7 /* Preview Content */,
 			);
 			path = Buman;
@@ -303,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68EB9870247D1DC300B435A7 /* LaunchScreen.storyboard in Resources */,
+				684829F2249E768500AF9C41 /* GoogleService-Info.plist in Resources */,
 				68EB986D247D1DC300B435A7 /* Preview Assets.xcassets in Resources */,
 				68EB986A247D1DC300B435A7 /* Assets.xcassets in Resources */,
 			);
@@ -357,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				684829FD249EA9F400AF9C41 /* AddTaskView.swift in Sources */,
 				68C5A8822497957A00397454 /* ColorModel.swift in Sources */,
 				681094DC247D70B000472AAA /* IconImageView.swift in Sources */,
 				683D99D9249898EA0087A190 /* IconSetViewModel.swift in Sources */,
@@ -370,13 +398,17 @@
 				683D99D52498828E0087A190 /* ColorSetViewModel.swift in Sources */,
 				681094E3247F05F600472AAA /* NavigationTitleViewModel.swift in Sources */,
 				6803A8B62498C928009F9C47 /* ColorView.swift in Sources */,
+				684829F6249E8DEC00AF9C41 /* TaskViewModel.swift in Sources */,
 				681094EC2482344F00472AAA /* ListView.swift in Sources */,
 				681094E72482297400472AAA /* ListsViewModel.swift in Sources */,
+				684829F4249E8DDF00AF9C41 /* TasksViewModel.swift in Sources */,
+				684829F8249E96BF00AF9C41 /* FirestoreManager.swift in Sources */,
 				6803A8B82498D6F2009F9C47 /* IconView.swift in Sources */,
 				68F2EF48249CA2A70002BB95 /* NavigationConfigurator.swift in Sources */,
 				68EB9868247D1DC100B435A7 /* MainView.swift in Sources */,
 				681094EE2482486600472AAA /* ListRowView.swift in Sources */,
 				686FB30B24837173003A531C /* TaskListView.swift in Sources */,
+				684829FB249EA3EB00AF9C41 /* GeometryManager.swift in Sources */,
 				681094E524821CA100472AAA /* ListViewModel.swift in Sources */,
 				6884BD41249D1FDB00FE9F3E /* TaskModel.swift in Sources */,
 				6884BD43249D2B6400FE9F3E /* UserModel.swift in Sources */,

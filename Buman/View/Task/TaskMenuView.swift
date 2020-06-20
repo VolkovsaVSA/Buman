@@ -28,7 +28,8 @@ struct TaskMenuView: View {
                         .font(Font.system(.largeTitle).bold())
                 }
                 Text(title)
-                    .font(Font.system(size: 20, weight: .medium, design: .default)).foregroundColor(.gray)
+                    .font(Font.system(size: 20, weight: .medium, design: .default))
+                    .foregroundColor(.gray)
             }
         .padding()
         }

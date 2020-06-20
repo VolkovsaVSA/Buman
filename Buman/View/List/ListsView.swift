@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import PartialSheet
 
 struct ListsView: View {
     
@@ -37,7 +36,6 @@ struct ListsView: View {
             .onDelete { indexSet in
                 self.listsVM.lists.remove(atOffsets: indexSet)
             }
-            
             
             Button(action: {
                 self.showModal.toggle()

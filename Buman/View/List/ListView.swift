@@ -69,7 +69,7 @@ struct ListView: View {
             self.showModal.toggle()
         }, label: {
             Image(systemName: "ellipsis.circle.fill")
-                .font(.title)
+                .font(Font.system(size: 24, weight: .regular, design: .default))
                 .foregroundColor(self.listVM.colorSystemImage)
         }))
             .sheet(isPresented: $showModal) {

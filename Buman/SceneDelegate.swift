@@ -8,7 +8,6 @@
 
 import UIKit
 import SwiftUI
-import PartialSheet
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
@@ -24,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let contentView = MainView()
             .environmentObject(ListsViewModel())
+            .environmentObject(TasksViewModel())
             
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

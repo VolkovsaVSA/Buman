@@ -33,7 +33,7 @@ var IconSet = [
         IconModel(icon: "book.fill", isSelected: false),
         IconModel(icon: "bookmark.fill", isSelected: false),
         IconModel(icon: "paperclip", isSelected: false),
-        IconModel(icon: "person.3.fill", isSelected: false),
+        IconModel(icon: "person.2.fill", isSelected: false),
         IconModel(icon: "sun.max.fill", isSelected: false),
     ],
     [
@@ -67,7 +67,7 @@ var IconSet = [
     [
         IconModel(icon: "paintbrush.fill", isSelected: false),
         IconModel(icon: "hammer.fill", isSelected: false),
-        IconModel(icon: "house.fill", isSelected: false),
+        IconModel(icon: "link", isSelected: false),
         IconModel(icon: "bandage.fill", isSelected: false),
         IconModel(icon: "sportscourt.fill", isSelected: false),
     ],

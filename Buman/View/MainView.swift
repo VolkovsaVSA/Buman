@@ -19,7 +19,6 @@ struct MainView: View {
         print(UIDevice.current.name)
     }
     
-    
     @ObservedObject var navTitle = NavigationTitleViewModel()
     
     
@@ -45,7 +44,7 @@ struct MainView: View {
                 
             }
             .navigationBarTitle("\(navTitle.title)", displayMode: .automatic)
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(leading: Button(action: {
                 //user profile
             }, label: {
                 Image(systemName: "person.crop.circle.fill")

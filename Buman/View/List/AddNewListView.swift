@@ -40,7 +40,6 @@ struct AddNewListView: View {
     var body: some View {
         
         ZStack {
-            //Color("TaskTabColor")
             VStack {
                 HStack {
                     Button(action: {
@@ -62,7 +61,7 @@ struct AddNewListView: View {
                     self.prepareEditListVM()
                 }
                 IconImageView(image: iconsVM.selectedIcon(), color: colorsVM.selectedColor(), imageScale: 50)
-                .shadow(radius: 12)
+                .shadow(radius: 12, x: 6, y: 6)
                     .padding(20)
                 TextField("New list title", text: $newListTitle)
                     .introspectTextField(customize: { tf in
@@ -88,8 +87,9 @@ struct AddNewListView: View {
     
 }
 
-//struct AddNewListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddNewListView(listsVM: ListsViewModel())
-//    }
-//}
+struct AddNewListView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddNewListView()
+        .environmentObject(ListsViewModel())
+    }
+}
