@@ -32,6 +32,7 @@ struct TaskListHeader: View {
                 //                    .shadow(radius: 6, x: 3, y: 3)
             }
         }
+        .padding(.horizontal)
         .sheet(isPresented: $showModal) {
             AddTaskView()
                 .environmentObject(self.tasksVM)

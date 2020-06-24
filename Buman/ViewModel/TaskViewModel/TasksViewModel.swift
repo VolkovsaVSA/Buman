@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 class TasksViewModel: ObservableObject {
     @Published var tasks = [TaskModel]()
-    @Published var height: CGFloat = 1100
+    @Published var height: CGFloat = 55
     private var db = Firestore.firestore()
     
     func fetchData() {

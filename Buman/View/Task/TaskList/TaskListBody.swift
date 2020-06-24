@@ -21,26 +21,25 @@ struct TaskListBody: View {
                     Text(task.id)
                         .fontWeight(.thin)
                 }
-                //.lineLimit(1)
+                .lineLimit(1)
                 //.minimumScaleFactor(0.5)
             }.onDelete { indexSet in
                 let deletedTask = self.tasksVM.tasks[indexSet.first!]
                 FirestoreManager.removeTask(task: deletedTask)
             }
         }
-            
-            //                        .cornerRadius(12)
-            //.frame(height: self.tasksVM.height)
-//            .introspectTableView(customize: { tableView in
-//                tableView.isScrollEnabled = false
-//                tableView.separatorStyle = .none
-//            })
+        .cornerRadius(12)
+        .frame(height: self.tasksVM.height)
+        .introspectTableView(customize: { tableView in
+            tableView.isScrollEnabled = false
+            tableView.separatorStyle = .none
+        })
     }
 }
 
 struct TaskListBody_Previews: PreviewProvider {
     static var previews: some View {
         TaskListBody()
-        .environmentObject(TasksViewModel())
+            .environmentObject(TasksViewModel())
     }
 }

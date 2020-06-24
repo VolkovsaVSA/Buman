@@ -26,9 +26,7 @@ struct MainView: View {
         
         NavigationView {
             TabView(selection: $navTitle.selectedTab) {
-                ScrollView {
-                    TaskView()
-                }
+                TaskView()
                 .tabItem {
                     Image(systemName: "tray.fill")
                         .font(.title)
