@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct TaskMenuView: View {
+struct TaskMenuViewCell: View {
     
     var title: String
     var count: Int
@@ -38,6 +38,6 @@ struct TaskMenuView: View {
 
 struct TaskMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskMenuView(title: "Today", count: 12, image: "calendar", color: .yellow)
+        TaskMenuViewCell(title: "Today", count: 12, image: "calendar", color: .yellow)
     }
 }

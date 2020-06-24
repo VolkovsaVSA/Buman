@@ -27,8 +27,8 @@ struct IconView: View {
     }
 }
 
-//struct IconView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        IconView(iconSetVM: <#IconSetViewModel#>, icon: IconSet.first!.first!)
-//    }
-//}
+struct IconView_Previews: PreviewProvider {
+    static var previews: some View {
+        IconView(iconSetVM: IconSetViewModel(), icon: .constant(IconSetViewModel().iconSet.first!.first!))
+    }
+}

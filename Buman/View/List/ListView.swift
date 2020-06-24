@@ -22,13 +22,13 @@ struct ListView: View {
         
         List {
             ForEach(listVM.listRowsVM) { listRowVM in
-                ListRowView(listRowVM: listRowVM, listVM: self.listVM)
+                ListViewCell(listRowVM: listRowVM, listVM: self.listVM)
             }
             .onDelete { indexSet in
                 //self.listVM.removeListRow(atOffsets: indexSet)
                 self.listVM.listRowsVM.remove(atOffsets: indexSet)
             }
-            ListRowView(listRowVM: ListRowViewModel.newListRow(), listVM: self.listVM) { result in
+            ListViewCell(listRowVM: ListCellViewModel.newListRow(), listVM: self.listVM) { result in
                 if case .success(let newListRow) = result {
                     self.listVM.addListRow(newList: newListRow)
                 }

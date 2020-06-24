@@ -12,11 +12,11 @@ import SwiftUI
 struct ListModel: Identifiable {
     let id = UUID().uuidString
     var title: String
-    var listRows: [ListRowModel]
+    var listRows: [ListCellModel]
     var systemImage: String
     var colorSystemImage: Color
     
-    init(title: String, listRows: [ListRowModel], systemImage: String, colorSystemImage: Color) {
+    init(title: String, listRows: [ListCellModel], systemImage: String, colorSystemImage: Color) {
         self.title = title
         self.listRows = listRows
         self.systemImage = systemImage

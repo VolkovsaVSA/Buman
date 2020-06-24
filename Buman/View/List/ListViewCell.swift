@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct ListRowView: View {
+struct ListViewCell: View {
     @EnvironmentObject var listsVM: ListsViewModel
-    @ObservedObject var listRowVM: ListRowViewModel
+    @ObservedObject var listRowVM: ListCellViewModel
     @ObservedObject var listVM: ListViewModel
     @State var addNewSublist = false
     
-    var onCommit: (Result<ListRowModel, InputError>) -> Void = { _ in }
+    var onCommit: (Result<ListCellModel, InputError>) -> Void = { _ in }
     
     var body: some View {
         Section {
@@ -37,7 +37,7 @@ struct ListRowView: View {
                 }) {
                     //onCommit
                     if !self.listRowVM.title.isEmpty {
-                        self.onCommit(.success(ListRowModel(title: self.listRowVM.title, isExpand: false, isComplete: false, subLists: [])))
+                        self.onCommit(.success(ListCellModel(title: self.listRowVM.title, isExpand: false, isComplete: false, subLists: [])))
                     }
                     else {
                         self.onCommit(.failure(.empty))
@@ -66,7 +66,7 @@ struct ListRowView: View {
                 if listRowVM.isExpand {
                     Section {
                         ForEach (listRowVM.subListRowsVM) { sublistRowVM in
-                            ListRowView(listRowVM: sublistRowVM, listVM: self.listVM)
+                            ListViewCell(listRowVM: sublistRowVM, listVM: self.listVM)
                         }
                         .onDelete { indexSet in
                             self.listRowVM.removeSublistItem(atOffsets: indexSet)
@@ -76,7 +76,7 @@ struct ListRowView: View {
                 }
             }
             if addNewSublist {
-                ListRowView(listRowVM: ListRowViewModel.newListRow(), listVM: self.listVM) { result in
+                ListViewCell(listRowVM: ListCellViewModel.newListRow(), listVM: self.listVM) { result in
                     if case .success(let newListRow) = result {
                         self.listRowVM.addSublistRow(newList: newListRow)
                         self.addNewSublist.toggle()

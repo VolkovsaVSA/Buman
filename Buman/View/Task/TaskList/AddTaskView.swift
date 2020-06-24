@@ -26,7 +26,9 @@ struct AddTaskView: View {
                     }),
                     trailing: Button(action: {
                         let tempTask = TaskModel(id: UUID().uuidString, createdTime: Timestamp(date: Date()), title: "Temp Task", text: "temptemptemptemptemp", creatorID: "123")
-                        self.tasksVM.tasks.append(tempTask)
+                        
+                        FirestoreManager.addTask(task: tempTask)
+                        
                         self.presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Add")

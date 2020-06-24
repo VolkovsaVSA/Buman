@@ -8,16 +8,21 @@
 
 import Foundation
 import FirebaseFirestore
-import FirebaseFirestoreSwift
+//import FirebaseFirestoreSwift
 
 class TasksViewModel: ObservableObject {
     @Published var tasks = [TaskModel]()
-    
+    @Published var height: CGFloat = 1100
     private var db = Firestore.firestore()
     
-    init() {
-        TempTasks.forEach { taskModel in
-            tasks.append(taskModel)
+    func fetchData() {
+        FirestoreManager.addTaskListener { tasks in
+            self.tasks = tasks
+            self.height = 53 * CGFloat(self.tasks.count)
         }
+    }
+    
+    init() {
+        fetchData()
     }
 }

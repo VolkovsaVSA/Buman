@@ -16,11 +16,11 @@ final class ListViewModel: ObservableObject, Identifiable {
     @Published var title: String
     @Published var systemImage: String
     @Published var colorSystemImage: Color
-    @Published var listRowsVM: [ListRowViewModel] = [] 
+    @Published var listRowsVM: [ListCellViewModel] = [] 
     @Published var newTask = ""
     
-    func addListRow(newList: ListRowModel) {
-        let newListRowVM = ListRowViewModel(listRow: newList)
+    func addListRow(newList: ListCellModel) {
+        let newListRowVM = ListCellViewModel(listRow: newList)
         listRowsVM.append(newListRowVM)
     }
 //    func removeListRow(atOffsets: IndexSet) {
@@ -35,7 +35,7 @@ final class ListViewModel: ObservableObject, Identifiable {
         self.colorSystemImage = list.colorSystemImage
         
         list.listRows.forEach({ row in
-            self.listRowsVM.append(ListRowViewModel(listRow: row))
+            self.listRowsVM.append(ListCellViewModel(listRow: row))
         })
 
     }

@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-final class ListRowViewModel: ObservableObject, Identifiable {
+final class ListCellViewModel: ObservableObject, Identifiable {
     @Published var title: String
     @Published var isExpand: Bool
     @Published var isComplete: Bool {
@@ -17,7 +17,7 @@ final class ListRowViewModel: ObservableObject, Identifiable {
             changeSublistIsComplete(subListVM: subListRowsVM)
         }
     }
-    @Published var subListRowsVM: [ListRowViewModel] = [] {
+    @Published var subListRowsVM: [ListCellViewModel] = [] {
         didSet {
             if subListRowsVM.isEmpty {
                 fontWeight = .regular
@@ -31,8 +31,8 @@ final class ListRowViewModel: ObservableObject, Identifiable {
     
     var fontWeight: Font.Weight
     
-    static func newListRow() -> ListRowViewModel {
-      ListRowViewModel(listRow: ListRowModel(title: "", isExpand: false, isComplete: false, subLists: []))
+    static func newListRow() -> ListCellViewModel {
+      ListCellViewModel(listRow: ListCellModel(title: "", isExpand: false, isComplete: false, subLists: []))
     }
     
     
@@ -56,12 +56,12 @@ final class ListRowViewModel: ObservableObject, Identifiable {
     func removeSublistItemAtIndex(index: Int) {
         subListRowsVM.remove(at: index)
     }
-    func addSublistRow(newList: ListRowModel) {
-        let newListRowVM = ListRowViewModel(listRow: newList)
+    func addSublistRow(newList: ListCellModel) {
+        let newListRowVM = ListCellViewModel(listRow: newList)
         subListRowsVM.append(newListRowVM)
     }
     
-    private func changeSublistIsComplete(subListVM: [ListRowViewModel]) {
+    private func changeSublistIsComplete(subListVM: [ListCellViewModel]) {
         for (_, value) in subListVM.enumerated() {
             value.isComplete = isComplete
             changeSublistIsComplete(subListVM: value.subListRowsVM)
@@ -69,14 +69,14 @@ final class ListRowViewModel: ObservableObject, Identifiable {
     }
     
     
-    init(listRow: ListRowModel) {
+    init(listRow: ListCellModel) {
         self.title = listRow.title
         self.isExpand = listRow.isExpand
         self.isComplete = listRow.isComplete
         self.fontWeight = listRow.subLists.isEmpty ? .regular: .bold
         
         listRow.subLists.forEach { subListRow in
-            self.subListRowsVM.append(ListRowViewModel(listRow: subListRow))
+            self.subListRowsVM.append(ListCellViewModel(listRow: subListRow))
         }
     }
 }

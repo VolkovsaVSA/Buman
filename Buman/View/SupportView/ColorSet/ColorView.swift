@@ -23,16 +23,13 @@ struct ColorView: View {
             Circle()
             .frame(width: self.size, height: self.size)
             .foregroundColor(color.color)
-                
-            
         }
-        
         
     }
 }
 
-//struct ColorView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ColorView(color: ColorSet2.first!.first!)
-//    }
-//}
+struct ColorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorView(colorSetVM: ColorSetViewModel(), color: .constant(ColorSetViewModel().colorSet.first!.first!))
+    }
+}
