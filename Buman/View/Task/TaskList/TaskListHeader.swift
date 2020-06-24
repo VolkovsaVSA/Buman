@@ -15,9 +15,14 @@ struct TaskListHeader: View {
     
     var body: some View {
         HStack {
-            Text("Today")
-                .font(.system(size: 26, weight: .bold))
-            //.shadow(radius: 6, x: 3, y: 3)
+            VStack(alignment: .leading) {
+                Text("Today")
+                    .font(.system(size: 26, weight: .bold))
+                //.shadow(radius: 6, x: 3, y: 3)
+                Text("\(DateFormatter.localizedString(from: Date(), dateStyle: .long, timeStyle: .none))")
+                    .font(.caption)
+            }
+            
             Spacer()
             Button(action: {
                 self.showModal.toggle()
@@ -29,7 +34,7 @@ struct TaskListHeader: View {
                     //.font(Font.system(size: 22))
                     .font(Font.system(size: 20, weight: .medium, design: .default))
                     .foregroundColor(.red)
-                //                    .shadow(radius: 6, x: 3, y: 3)
+                //.shadow(radius: 6, x: 3, y: 3)
             }
         }
         .padding(.horizontal)

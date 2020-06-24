@@ -13,15 +13,15 @@ import FirebaseFirestoreSwift
 struct TaskView: View {
     
     
+    
     var body: some View {
         
         ScrollView {
             TaskMenuView()
                 .padding()
-            //TaskListView()
-                TaskListHeader()
-                    TaskListBody()
-                .padding()
+            TaskListHeader()
+            TaskListBody()
+                .padding(.horizontal)
         }
         .introspectScrollView { scrollView in
             scrollView.showsVerticalScrollIndicator = false

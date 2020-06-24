@@ -122,8 +122,7 @@
 				6884BD42249D2B6400FE9F3E /* UserModel.swift */,
 				6884BD40249D1FDB00FE9F3E /* TaskModel.swift */,
 				6884BD3F249D1F0700FE9F3E /* ListModel */,
-				68C5A8812497957A00397454 /* ColorModel.swift */,
-				683D99D6249884A30087A190 /* IconModel.swift */,
+				6829CCF624A386C500022C38 /* SupportModels */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,11 +130,9 @@
 		681094D8247D4BA900472AAA /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */,
-				683D99D42498828E0087A190 /* ColorSetViewModel.swift */,
-				683D99D8249898EA0087A190 /* IconSetViewModel.swift */,
 				684829F9249E9D5100AF9C41 /* TaskViewModel */,
 				6803A8B92498FB0F009F9C47 /* ListViewModel */,
+				6829CCF524A386A000022C38 /* SupportViewModels */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -169,6 +166,43 @@
 				6871565624A3764F0063B148 /* IconSet */,
 			);
 			path = SupportView;
+			sourceTree = "<group>";
+		};
+		6829CCF524A386A000022C38 /* SupportViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				681094E2247F05F600472AAA /* NavigationTitleViewModel.swift */,
+				683D99D42498828E0087A190 /* ColorSetViewModel.swift */,
+				683D99D8249898EA0087A190 /* IconSetViewModel.swift */,
+			);
+			path = SupportViewModels;
+			sourceTree = "<group>";
+		};
+		6829CCF624A386C500022C38 /* SupportModels */ = {
+			isa = PBXGroup;
+			children = (
+				68C5A8812497957A00397454 /* ColorModel.swift */,
+				683D99D6249884A30087A190 /* IconModel.swift */,
+			);
+			path = SupportModels;
+			sourceTree = "<group>";
+		};
+		6829CCF724A386D900022C38 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				684829F7249E96BF00AF9C41 /* FirestoreManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		6829CCF824A386E900022C38 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				68EB9863247D1DC100B435A7 /* AppDelegate.swift */,
+				68EB9865247D1DC100B435A7 /* SceneDelegate.swift */,
+				68F2EF47249CA2A70002BB95 /* NavigationConfigurator.swift */,
+			);
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		684829F9249E9D5100AF9C41 /* TaskViewModel */ = {
@@ -247,10 +281,8 @@
 		68EB9862247D1DC100B435A7 /* Buman */ = {
 			isa = PBXGroup;
 			children = (
-				68EB9863247D1DC100B435A7 /* AppDelegate.swift */,
-				68EB9865247D1DC100B435A7 /* SceneDelegate.swift */,
-				68F2EF47249CA2A70002BB95 /* NavigationConfigurator.swift */,
-				684829F7249E96BF00AF9C41 /* FirestoreManager.swift */,
+				6829CCF824A386E900022C38 /* SupportingFiles */,
+				6829CCF724A386D900022C38 /* Managers */,
 				681094D5247D4A4D00472AAA /* Model */,
 				681094D8247D4BA900472AAA /* ViewModel */,
 				68EB9877247D1DDC00B435A7 /* View */,
@@ -275,9 +307,9 @@
 			isa = PBXGroup;
 			children = (
 				68EB9867247D1DC100B435A7 /* MainView.swift */,
-				681B9FE124850C6F00506722 /* SupportView */,
 				681094E1247EEF0700472AAA /* Task */,
 				681094EA2482302D00472AAA /* List */,
+				681B9FE124850C6F00506722 /* SupportView */,
 			);
 			path = View;
 			sourceTree = "<group>";
