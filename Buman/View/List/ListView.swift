@@ -11,6 +11,7 @@ import Introspect
 
 struct ListView: View {
     
+    @Environment(\.presentationMode) var presentation
     @EnvironmentObject var listsVM: ListsViewModel
     @EnvironmentObject var colorsVM: ColorSetViewModel
     @EnvironmentObject var iconsVM: IconSetViewModel

@@ -16,5 +16,5 @@ struct UserModel {
     var friends: [String]
     var teamMember: [String]
     var teamOwner: [String]
-    var userImage: String
+    var userImage: Data
 }

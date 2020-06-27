@@ -65,6 +65,7 @@
 		681094E62482297400472AAA /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModel.swift; sourceTree = "<group>"; };
 		681094EB2482344F00472AAA /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		681094ED2482486600472AAA /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		6829CCFA24A6C61E00022C38 /* Buman.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Buman.entitlements; sourceTree = "<group>"; };
 		683D99D42498828E0087A190 /* ColorSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSetViewModel.swift; sourceTree = "<group>"; };
 		683D99D6249884A30087A190 /* IconModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconModel.swift; sourceTree = "<group>"; };
 		683D99D8249898EA0087A190 /* IconSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconSetViewModel.swift; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 		68EB9862247D1DC100B435A7 /* Buman */ = {
 			isa = PBXGroup;
 			children = (
+				6829CCFA24A6C61E00022C38 /* Buman.entitlements */,
 				6829CCF824A386E900022C38 /* SupportingFiles */,
 				6829CCF724A386D900022C38 /* Managers */,
 				681094D5247D4A4D00472AAA /* Model */,
@@ -621,6 +623,7 @@
 			baseConfigurationReference = FDBA913EFC42020FE7C71FFA /* Pods-Buman.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Buman/Buman.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Buman/Preview Content\"";
 				DEVELOPMENT_TEAM = 7C46924T49;
@@ -632,6 +635,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = VSA.Buman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -642,6 +646,7 @@
 			baseConfigurationReference = 289CD129AF3030B0E3A202F3 /* Pods-Buman.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Buman/Buman.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Buman/Preview Content\"";
 				DEVELOPMENT_TEAM = 7C46924T49;
@@ -653,6 +658,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = VSA.Buman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
